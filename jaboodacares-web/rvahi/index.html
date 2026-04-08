@@ -544,7 +544,7 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.25);font-family:'Noto Sans',mo
     <div class="nav-logo">Jabooda Cares</div>
     <span class="nav-sub">AANHPI Homeownership · Rainier Valley</span>
   </div>
-  <button class="nav-cta" onclick="showTab(0)">Apply Now</button>
+  <button class="nav-cta" onclick="showTab(0);document.getElementById('apply').scrollIntoView({behavior:'smooth'})">Apply Now</button>
 </nav>
 
 <!-- HERO -->
@@ -566,7 +566,7 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.25);font-family:'Noto Sans',mo
     </p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="document.getElementById('check').scrollIntoView({behavior:'smooth'})" id="hero-btn1">Check if I qualify</button>
-      <button class="btn-ghost-w" onclick="showTab(0)" id="hero-btn2">Start application</button>
+      <button class="btn-ghost-w" onclick="showTab(0);document.getElementById('apply').scrollIntoView({behavior:'smooth'})" id="hero-btn2">Start application</button>
     </div>
   </div>
 </section>

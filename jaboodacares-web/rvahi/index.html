@@ -576,7 +576,7 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.25);font-family:'Noto Sans',mo
   <div class="trust-item"><span class="trust-check">✓</span> Permanently affordable</div>
   <div class="trust-item"><span class="trust-check">✓</span> 80% AMI or below</div>
   <div class="trust-item"><span class="trust-check">✓</span> Community preference priority</div>
-  <div class="trust-item"><span class="trust-check">✓</span> No immigration status required to apply</div>
+  <div class="trust-item"><span class="trust-check">✓</span> No cost or obligation to apply</div>
   <div class="trust-item"><span class="trust-check">✓</span> Free application assistance in your language</div>
   <div class="trust-item"><span class="trust-check">✓</span> City of Seattle · Sound Transit partnership</div>
 </div>
@@ -665,7 +665,7 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.25);font-family:'Noto Sans',mo
             <strong>Rainier Valley residents and those displaced from the neighborhood receive priority.</strong>
             The next step is to join our interest list — homes are subject to availability and released in phases. We'll contact you in your language when units open and help you prepare your full application at no cost.
           </div>
-          <span class="result-cta" onclick="showTab(0)">Join the interest list →</span>
+          <span class="result-cta" onclick="showTab(0);document.getElementById('apply').scrollIntoView({behavior:'smooth'})">Join the interest list →</span>
         </div>
 
         <div class="result-box ineligible" id="result-maybe">
@@ -674,7 +674,7 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.25);font-family:'Noto Sans',mo
           <div class="result-body">
             Some circumstances that appear disqualifying have exceptions. Current homeowners who sold more than 3 years ago, income that varies seasonally, or debt that can be addressed through our Debt Barrier Removal Program may still qualify. Please join our list and we'll reach out to review your situation with no obligation.
           </div>
-          <span class="result-cta" onclick="showTab(0)">Join interest list anyway →</span>
+          <span class="result-cta" onclick="showTab(0);document.getElementById('apply').scrollIntoView({behavior:'smooth'})">Join interest list anyway →</span>
         </div>
       </div>
     </div>
@@ -820,7 +820,7 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.25);font-family:'Noto Sans',mo
     <!-- Panel 1: About You -->
     <div class="app-panel active" id="panel-0">
       <div class="app-panel-title">Tell us about yourself</div>
-      <div class="app-panel-sub">All information is kept confidential. You can complete this form in any language — just select yours above. Immigration status is not required and will not be asked.</div>
+      <div class="app-panel-sub">All information is kept confidential. You can complete this form in any language — just select yours above.</div>
       <div class="app-fields">
         <div class="app-field">
           <label>First name <span class="req">*</span></label>
@@ -1044,7 +1044,7 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.25);font-family:'Noto Sans',mo
 
       <div class="app-doc-list">
         <h4>Required documents (gather these before your interview)</h4>
-        <div class="doc-item">Government-issued photo ID for all adult applicants (driver's license, passport, or Consular ID — immigration status not required)</div>
+        <div class="doc-item">Government-issued photo ID for all adult applicants (driver's license, passport, or state ID)</div>
         <div class="doc-item">2 most recent federal tax returns for all household members with income</div>
         <div class="doc-item">3 most recent pay stubs or income statements (all household earners)</div>
         <div class="doc-item">3 most recent bank account statements</div>
@@ -1152,14 +1152,6 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.25);font-family:'Noto Sans',mo
     <div class="faq-header">
       <span class="eyebrow">Common questions</span>
       <h2>Answers for the questions people don't ask out loud</h2>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        <span class="faq-q-text">Do I need to be a U.S. citizen to apply?</span>
-        <div class="faq-icon"><svg viewBox="0 0 24 24" width="20" height="20"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-      </div>
-      <div class="faq-a">No. Citizenship is not required to apply, to be selected, or to purchase a home through this program. Immigration status is not collected on the application and is not a factor in selection. Many RVAHI homeowners are permanent residents, DACA recipients, or have mixed-status households.</div>
     </div>
 
     <div class="faq-item">

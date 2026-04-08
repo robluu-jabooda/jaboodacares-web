@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>RVAHI Homeownership — Jabooda Cares</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet"/>
+<style>
+/* ─────────────────────────────────
+   TOKENS
+───────────────────────────────── */
+:root {
+  --forest:#0F2318;--forest-mid:#1C3A28;--moss:#3A5C45;
+  --sage:#7A9E86;--sage-l:#EDF4EF;--sage-border:#C4D9CA;
+  --cedar:#8B4A1C;--cedar-w:#B5672E;--cedar-l:#F2E4D4;--cedar-f:#FAF3EB;
+  --cream:#FDFAF5;--cream-w:#F5EFE3;--gold:#C9922A;--gold-l:#F0D9A8;
+  --text:#1A1A1A;--text-s:#4A4A48;--text-m:#777;
+  --border:#D8D0C4;--white:#FFFFFF;
+  --r:8px;--r2:16px;--r3:24px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Noto Sans',system-ui,sans-serif;
+  font-size:16px;line-height:1.65;color:var(--text);
+  background:var(--cream);-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ─── LANG DETECTION BANNER ─── */
+.lang-auto-banner{
+  background:var(--forest-mid);color:white;
+  padding:.6rem 2rem;display:flex;align-items:center;
+  justify-content:center;gap:1rem;font-size:.8rem;
+  flex-wrap:wrap;
+}
+.lang-auto-banner span{opacity:.7}
+.lang-pills{display:flex;gap:.5rem;flex-wrap:wrap}
+.lang-pill{
+  padding:.25rem .75rem;border-radius:100px;cursor:pointer;
+  font-size:.72rem;font-weight:500;letter-spacing:.04em;
+  border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.8);
+  transition:background .2s,color .2s;white-space:nowrap;
+}
+.lang-pill:hover,.lang-pill.active{
+  background:rgba(255,255,255,.15);color:white;
+  border-color:rgba(255,255,255,.5);
+}
+.lang-pill.active{background:var(--cedar-w);border-color:var(--cedar-w);color:white}
+
+/* ─── NAV ─── */
+nav{
+  background:var(--forest);display:flex;align-items:center;
+  justify-content:space-between;padding:0 2rem;height:64px;
+  position:sticky;top:0;z-index:100;
+}
+.nav-logo{
+  font-family:'Playfair Display',serif;font-size:1.1rem;
+  font-weight:700;color:white;letter-spacing:.02em;
+}
+.nav-sub{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);display:block;margin-top:1px}
+.nav-cta{
+  background:var(--cedar-w);color:white;
+  padding:.5rem 1.25rem;border-radius:var(--r);
+  font-size:.8rem;font-weight:600;
+  transition:background .2s;cursor:pointer;
+}
+.nav-cta:hover{background:var(--cedar)}
+
+/* ─── HERO ─── */
+.hero{
+  position:relative;min-height:88vh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to bottom,rgba(10,25,16,.15) 0%,rgba(10,25,16,.6) 60%,rgba(10,25,16,.95) 100%),
+    linear-gradient(155deg,#1a3a2a 0%,#2d5040 35%,#6B3A1A 65%,#1C3A28 100%);
+  background-size:cover;background-position:center;
+}
+/* Replace gradient with: background-image: url('images/rvahi-family.jpg') — a multigenerational AANHPI family in Rainier Valley, warm light, front of home */
+.hero-photo-note{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  color:rgba(255,255,255,.18);font-family:'Noto Sans',monospace;font-size:.7rem;
+  text-align:center;max-width:400px;line-height:1.7;pointer-events:none;
+  border:1px dashed rgba(255,255,255,.12);border-radius:var(--r2);padding:1.5rem;
+}
+.hero-content{
+  position:relative;z-index:10;
+  max-width:1100px;margin:0 auto;width:100%;
+  padding:0 2rem 4.5rem;
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:.6rem;
+  margin-bottom:1.5rem;
+}
+.hero-kicker span{
+  font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);font-weight:500;
+}
+.hero-kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--cedar-w)}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.4rem,5.5vw,4rem);
+  font-weight:900;color:white;line-height:1.08;
+  max-width:700px;margin-bottom:1.25rem;
+  text-shadow:0 2px 24px rgba(0,0,0,.25);
+}
+.hero h1 em{font-style:italic;color:var(--gold-l)}
+.hero-sub{
+  font-size:1.05rem;color:rgba(255,255,255,.7);
+  max-width:560px;line-height:1.85;margin-bottom:2.5rem;
+}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.btn-primary{
+  background:var(--cedar-w);color:white;
+  padding:.85rem 2rem;border-radius:var(--r);
+  font-size:.9rem;font-weight:600;
+  transition:background .2s,transform .15s;cursor:pointer;
+  display:inline-block;border:none;font-family:inherit;
+}
+.btn-primary:hover{background:var(--cedar);transform:translateY(-2px)}
+.btn-ghost-w{
+  color:rgba(255,255,255,.82);padding:.85rem 1.75rem;
+  border-radius:var(--r);font-size:.9rem;font-weight:500;
+  border:1.5px solid rgba(255,255,255,.28);
+  transition:border-color .2s,background .2s;cursor:pointer;
+  display:inline-block;background:transparent;font-family:inherit;
+}
+.btn-ghost-w:hover{border-color:rgba(255,255,255,.65);background:rgba(255,255,255,.07)}
+
+/* Trust bar */
+.trust-bar{
+  background:var(--forest);
+  display:flex;gap:0;overflow:hidden;
+  flex-wrap:wrap;
+}
+.trust-item{
+  display:flex;align-items:center;gap:.5rem;
+  padding:.9rem 1.5rem;border-right:1px solid rgba(255,255,255,.07);
+  font-size:.72rem;font-weight:500;
+  color:rgba(255,255,255,.55);
+  white-space:nowrap;
+}
+.trust-item:last-child{border-right:none}
+.trust-check{color:var(--sage);font-size:.8rem}
+
+/* ─── ELIGIBILITY CHECKER ─── */
+.checker-section{
+  background:var(--cedar-f);padding:5rem 2rem;
+  border-top:1px solid var(--cedar-l);border-bottom:1px solid var(--cedar-l);
+}
+.checker-inner{
+  max-width:960px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:start;
+}
+.checker-left .eyebrow{
+  font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--cedar-w);font-weight:500;display:block;margin-bottom:.9rem;
+}
+.checker-left h2{
+  font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.4rem);
+  font-weight:700;color:var(--forest);margin-bottom:1rem;line-height:1.15;
+}
+.checker-left p{color:var(--text-s);line-height:1.8;margin-bottom:1.5rem;font-size:.95rem}
+.ami-table{
+  background:white;border:1px solid var(--border);
+  border-radius:var(--r2);overflow:hidden;margin-top:.5rem;
+}
+.ami-table-header{
+  background:var(--forest);color:white;
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:600;
+}
+.ami-table-header span,.ami-row span{
+  padding:.65rem 1rem;
+}
+.ami-row{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  border-top:1px solid var(--border);font-size:.85rem;
+}
+.ami-row:hover{background:var(--sage-l)}
+.ami-hl{font-weight:600;color:var(--forest)}
+.ami-note{
+  padding:.65rem 1rem;font-size:.72rem;
+  color:var(--text-m);border-top:1px solid var(--border);
+  background:var(--cream);font-style:italic;
+}
+
+.checker-right{}
+.checker-card{
+  background:white;border:1px solid var(--border);
+  border-radius:var(--r3);padding:2rem;
+  box-shadow:0 4px 20px rgba(28,58,40,.07);
+}
+.checker-card h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;font-weight:700;
+  color:var(--forest);margin-bottom:1.5rem;
+}
+.check-group{margin-bottom:1.25rem}
+.check-label{
+  font-size:.8rem;font-weight:600;color:var(--text);
+  margin-bottom:.4rem;display:block;
+}
+.check-select,.check-input{
+  width:100%;padding:.6rem .9rem;
+  border:1.5px solid var(--border);border-radius:var(--r);
+  font-size:.9rem;background:white;color:var(--text);
+  font-family:'Noto Sans',sans-serif;
+  transition:border-color .2s;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23777' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .9rem center;
+  padding-right:2.5rem;
+}
+.check-input{background-image:none;padding-right:.9rem}
+.check-select:focus,.check-input:focus{
+  outline:none;border-color:var(--forest);
+}
+.result-box{
+  border-radius:var(--r2);padding:1.25rem 1.5rem;
+  margin-top:1.5rem;display:none;
+}
+.result-box.eligible{
+  background:var(--sage-l);border:1px solid var(--sage-border);
+}
+.result-box.ineligible{
+  background:var(--cedar-f);border:1px solid var(--cedar-l);
+}
+.result-box.show{display:block}
+.result-icon{font-size:1.4rem;margin-bottom:.4rem}
+.result-title{font-weight:700;font-size:.95rem;margin-bottom:.3rem}
+.result-body{font-size:.85rem;color:var(--text-s);line-height:1.65}
+.result-cta{
+  margin-top:1rem;display:inline-block;
+  font-size:.8rem;font-weight:600;color:var(--forest);
+  border-bottom:1.5px solid var(--forest);padding-bottom:.1rem;
+  cursor:pointer;
+}
+
+/* ─── HOW IT WORKS ─── */
+.hiw{background:var(--cream);padding:5rem 2rem}
+.hiw-header{text-align:center;max-width:600px;margin:0 auto 3.5rem}
+.hiw-header .eyebrow{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cedar-w);font-weight:500;display:block;margin-bottom:.9rem}
+.hiw-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:700;color:var(--forest);margin-bottom:.75rem}
+.hiw-header p{color:var(--text-s);line-height:1.8;font-size:.95rem}
+.steps{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;max-width:1100px;margin:0 auto;
+  background:var(--border);border-radius:var(--r3);overflow:hidden;
+  border:1px solid var(--border);
+}
+.step{
+  background:white;padding:2rem 1.5rem;position:relative;
+}
+.step:not(:last-child){border-right:1px solid var(--border)}
+.step-num{
+  font-family:'Playfair Display',serif;
+  font-size:2.5rem;font-weight:900;
+  color:var(--sage-l);line-height:1;
+  margin-bottom:.75rem;display:block;
+}
+.step-icon{
+  width:40px;height:40px;border-radius:var(--r);
+  background:var(--sage-l);display:flex;align-items:center;
+  justify-content:center;margin-bottom:1rem;
+}
+.step-icon svg{width:20px;height:20px;fill:none;stroke:var(--moss);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.step h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--forest);margin-bottom:.5rem}
+.step p{font-size:.825rem;color:var(--text-s);line-height:1.65}
+.step-time{
+  display:inline-block;margin-top:.75rem;
+  font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:.2rem .65rem;border-radius:100px;
+  background:var(--cedar-f);color:var(--cedar-w);
+  border:1px solid var(--cedar-l);
+}
+
+/* ─── HABITAT COMPARISON TABLE ─── */
+.compare{background:var(--sage-l);padding:5rem 2rem;border-top:1px solid var(--sage-border)}
+.compare-header{text-align:center;max-width:600px;margin:0 auto 3rem}
+.compare-header .eyebrow{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cedar-w);font-weight:500;display:block;margin-bottom:.9rem}
+.compare-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:700;color:var(--forest);margin-bottom:.75rem}
+.compare-table{
+  max-width:900px;margin:0 auto;
+  background:white;border:1px solid var(--border);
+  border-radius:var(--r3);overflow:hidden;
+}
+.ct-header{
+  display:grid;grid-template-columns:2fr 1.2fr 1.2fr;
+  background:var(--forest);color:white;
+}
+.ct-header span{
+  padding:1rem 1.25rem;font-size:.72rem;
+  font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+}
+.ct-header span:not(:first-child){text-align:center}
+.ct-row{
+  display:grid;grid-template-columns:2fr 1.2fr 1.2fr;
+  border-top:1px solid var(--border);
+}
+.ct-row:hover{background:var(--cream)}
+.ct-row span{padding:.85rem 1.25rem;font-size:.875rem;color:var(--text-s)}
+.ct-row span:not(:first-child){text-align:center}
+.ct-row .ct-label{color:var(--text);font-weight:500}
+.yes{color:#1a7a3a;font-weight:600}
+.partial{color:var(--gold);font-weight:500}
+.no{color:#a03020;font-weight:500}
+.ct-hl{background:var(--sage-l)!important}
+.ct-hl .ct-label{color:var(--forest)!important;font-weight:600!important}
+
+/* ─── LANGUAGES ─── */
+.lang-section{
+  background:var(--forest);padding:5rem 2rem;
+}
+.lang-header{text-align:center;max-width:600px;margin:0 auto 3rem}
+.lang-header .eyebrow{color:var(--cedar-w);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;display:block;margin-bottom:.9rem}
+.lang-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:700;color:white;margin-bottom:.75rem}
+.lang-header p{color:rgba(255,255,255,.55);font-size:.95rem;line-height:1.8}
+.lang-cards{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;max-width:1000px;margin:0 auto;
+}
+.lang-card{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--r2);padding:1.75rem;
+  cursor:pointer;transition:background .2s,border-color .2s;
+}
+.lang-card:hover,.lang-card.active{
+  background:rgba(255,255,255,.12);
+  border-color:rgba(255,255,255,.25);
+}
+.lang-card.active{border-color:var(--cedar-w)}
+.lc-native{
+  font-size:1.6rem;font-weight:700;color:white;
+  margin-bottom:.35rem;line-height:1;
+}
+.lc-english{
+  font-size:.8rem;letter-spacing:.08em;
+  color:rgba(255,255,255,.5);margin-bottom:.75rem;display:block;
+}
+.lc-tagline{font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.55}
+.lc-pop{
+  display:inline-block;margin-top:.75rem;
+  font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--cedar-w);
+}
+
+/* ─── APPLICATION FLOW MOCKUP ─── */
+.apply-section{background:var(--cream-w);padding:5rem 2rem;border-top:1px solid var(--border)}
+.apply-header{text-align:center;max-width:600px;margin:0 auto 3.5rem}
+.apply-header .eyebrow{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cedar-w);font-weight:500;display:block;margin-bottom:.9rem}
+.apply-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:700;color:var(--forest);margin-bottom:.75rem}
+.apply-header p{color:var(--text-s);font-size:.95rem;line-height:1.8}
+
+.app-flow{max-width:860px;margin:0 auto}
+.app-step-tabs{
+  display:flex;gap:0;background:var(--border);
+  border-radius:var(--r2) var(--r2) 0 0;overflow:hidden;
+}
+.app-tab{
+  flex:1;padding:.75rem 1rem;text-align:center;cursor:pointer;
+  font-size:.75rem;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--text-m);background:white;
+  border-right:1px solid var(--border);transition:background .2s,color .2s;
+}
+.app-tab:last-child{border-right:none}
+.app-tab.active{background:var(--forest);color:white}
+.app-tab .tab-num{
+  display:block;font-size:.6rem;font-weight:700;
+  margin-bottom:.15rem;opacity:.5;
+}
+.app-tab.active .tab-num{opacity:.7;color:rgba(255,255,255,.6)}
+
+.app-panel{
+  background:white;border:1px solid var(--border);
+  border-top:none;border-radius:0 0 var(--r2) var(--r2);
+  padding:2.5rem;display:none;
+}
+.app-panel.active{display:block}
+.app-panel-title{
+  font-family:'Playfair Display',serif;font-size:1.5rem;
+  font-weight:700;color:var(--forest);margin-bottom:.5rem;
+}
+.app-panel-sub{font-size:.9rem;color:var(--text-s);margin-bottom:2rem;line-height:1.7}
+.app-fields{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.75rem}
+.app-field{}
+.app-field label{font-size:.78rem;font-weight:600;color:var(--text);display:block;margin-bottom:.4rem}
+.app-field .req{color:var(--cedar-w)}
+.app-input,.app-select{
+  width:100%;padding:.65rem .9rem;
+  border:1.5px solid var(--border);border-radius:var(--r);
+  font-size:.9rem;font-family:'Noto Sans',sans-serif;
+  color:var(--text);background:white;
+  transition:border-color .2s;
+}
+.app-select{
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23777' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .9rem center;
+  padding-right:2.5rem;
+}
+.app-input:focus,.app-select:focus{outline:none;border-color:var(--forest)}
+.app-field.full{grid-column:span 2}
+.app-doc-list{
+  background:var(--sage-l);border:1px solid var(--sage-border);
+  border-radius:var(--r2);padding:1.5rem;margin-bottom:1.75rem;
+}
+.app-doc-list h4{font-size:.85rem;font-weight:700;color:var(--forest);margin-bottom:.9rem}
+.doc-item{
+  display:flex;align-items:flex-start;gap:.6rem;
+  font-size:.85rem;color:var(--text-s);margin-bottom:.6rem;line-height:1.5;
+}
+.doc-item::before{content:'→';color:var(--moss);flex-shrink:0;font-size:.75rem;margin-top:.15rem}
+.app-note{
+  background:var(--cedar-f);border:1px solid var(--cedar-l);
+  border-radius:var(--r);padding:1rem 1.25rem;
+  font-size:.825rem;color:var(--text-s);line-height:1.65;margin-bottom:1.75rem;
+}
+.app-note strong{color:var(--cedar-w)}
+.app-actions{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.btn-next{
+  background:var(--forest);color:white;
+  padding:.75rem 2rem;border-radius:var(--r);
+  font-size:.875rem;font-weight:600;cursor:pointer;
+  border:none;font-family:inherit;transition:background .2s;
+}
+.btn-next:hover{background:var(--moss)}
+.btn-back{
+  background:transparent;color:var(--text-s);
+  padding:.75rem 1.5rem;border-radius:var(--r);
+  font-size:.875rem;font-weight:500;cursor:pointer;
+  border:1.5px solid var(--border);font-family:inherit;
+  transition:border-color .2s;
+}
+.btn-back:hover{border-color:var(--text-s)}
+.step-progress{
+  display:flex;gap:.4rem;align-items:center;font-size:.75rem;color:var(--text-m)
+}
+.prog-dot{width:7px;height:7px;border-radius:50%;background:var(--border)}
+.prog-dot.done{background:var(--moss)}
+.prog-dot.current{background:var(--forest);width:20px;border-radius:4px}
+
+/* Checkboxes */
+.app-check-group{
+  grid-column:span 2;
+  display:flex;flex-direction:column;gap:.6rem;
+}
+.app-check-item{display:flex;align-items:flex-start;gap:.75rem;cursor:pointer}
+.app-check-item input{
+  width:18px;height:18px;border:1.5px solid var(--border);
+  border-radius:4px;cursor:pointer;flex-shrink:0;margin-top:.1rem;
+  accent-color:var(--forest);
+}
+.app-check-label{font-size:.875rem;color:var(--text-s);line-height:1.55}
+
+/* ─── FAQ ACCORDION ─── */
+.faq-section{background:var(--cream);padding:5rem 2rem;border-top:1px solid var(--border)}
+.faq-inner{max-width:760px;margin:0 auto}
+.faq-header{text-align:center;margin-bottom:2.5rem}
+.faq-header .eyebrow{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cedar-w);font-weight:500;display:block;margin-bottom:.9rem}
+.faq-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--forest)}
+.faq-item{border-top:1px solid var(--border)}
+.faq-item:last-child{border-bottom:1px solid var(--border)}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.1rem 0;cursor:pointer;gap:1rem;
+}
+.faq-q-text{font-size:.925rem;font-weight:600;color:var(--text);line-height:1.4}
+.faq-icon{width:20px;height:20px;flex-shrink:0;transition:transform .25s}
+.faq-icon svg{fill:none;stroke:var(--text-m);stroke-width:2;stroke-linecap:round}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{
+  font-size:.875rem;color:var(--text-s);line-height:1.8;
+  max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s;
+}
+.faq-item.open .faq-a{max-height:500px;padding-bottom:1.25rem}
+
+/* ─── CTA BANNER ─── */
+.cta-banner{
+  position:relative;overflow:hidden;
+  background:var(--forest);padding:5rem 2rem;
+}
+.cta-inner{
+  max-width:900px;margin:0 auto;
+  display:grid;grid-template-columns:1fr auto;gap:3rem;
+  align-items:center;
+}
+.cta-text .eyebrow{color:var(--cedar-w);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;display:block;margin-bottom:.9rem}
+.cta-text h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:700;color:white;margin-bottom:.75rem}
+.cta-text p{color:rgba(255,255,255,.6);font-size:.95rem;line-height:1.8}
+.cta-acts{display:flex;flex-direction:column;gap:.75rem;flex-shrink:0}
+
+/* Footer */
+footer{background:#080F0B;padding:2.5rem;text-align:center}
+footer p{font-size:.75rem;color:rgba(255,255,255,.25);font-family:'Noto Sans',monospace;letter-spacing:.04em}
+
+/* Responsive */
+@media(max-width:900px){
+  .checker-inner,.steps,.lang-cards,.cta-inner{grid-template-columns:1fr;gap:2rem}
+  .steps{background:none;border:none;border-radius:0}
+  .step{border:1px solid var(--border);border-radius:var(--r2);border-right:1px solid var(--border)!important}
+  .ct-header,.ct-row{grid-template-columns:1.5fr 1fr 1fr}
+  .app-fields{grid-template-columns:1fr}
+  .app-field.full{grid-column:span 1}
+  .app-check-group{grid-column:span 1}
+  .app-step-tabs .app-tab{font-size:.62rem;padding:.6rem .5rem}
+  .cta-acts{flex-direction:row;flex-wrap:wrap}
+  .compare-table{overflow-x:auto}
+}
+@media(max-width:600px){
+  .lang-cards{grid-template-columns:1fr 1fr}
+  .app-step-tabs{overflow-x:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- LANGUAGE AUTO-DETECTION BANNER -->
+<div class="lang-auto-banner">
+  <span>Select your language — 请选择语言 — Chọn ngôn ngữ — Piliin ang wika — ภาษา</span>
+  <div class="lang-pills">
+    <div class="lang-pill active" onclick="setLang('en')">English</div>
+    <div class="lang-pill" onclick="setLang('zh')">中文</div>
+    <div class="lang-pill" onclick="setLang('vi')">Tiếng Việt</div>
+    <div class="lang-pill" onclick="setLang('tl')">Filipino</div>
+    <div class="lang-pill" onclick="setLang('km')">ភាសាខ្មែរ</div>
+    <div class="lang-pill" onclick="setLang('so')">Soomaali</div>
+    <div class="lang-pill" onclick="setLang('es')">Español</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div>
+    <div class="nav-logo">Jabooda Cares</div>
+    <span class="nav-sub">AANHPI Homeownership · Rainier Valley</span>
+  </div>
+  <button class="nav-cta" onclick="showTab(0)">Apply Now</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-photo-note">
+    PHOTO BRIEF: Multigenerational AANHPI family standing in front of a Rainier Valley home — warm late-afternoon light, genuine expressions, South Seattle neighborhood visible in background. Not stock. Real family.
+  </div>
+  <div class="hero-content">
+    <div class="hero-kicker">
+      <span class="hero-kicker-dot"></span>
+      <span id="hero-kicker-text">Rainier Valley Affordable Homeownership Initiative · Seattle Office of Housing</span>
+    </div>
+    <h1 id="hero-h1">Your family belongs<br>in <em>Rainier Valley.</em></h1>
+    <p class="hero-sub" id="hero-sub">
+      Permanently affordable homes for first-time homebuyers along MLK Jr. Way South.
+      Priority given to current and displaced Rainier Valley residents, and communities
+      historically excluded from homeownership — including AANHPI families.
+    </p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('check').scrollIntoView({behavior:'smooth'})" id="hero-btn1">Check if I qualify</button>
+      <button class="btn-ghost-w" onclick="showTab(0)" id="hero-btn2">Start application</button>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-check">✓</span> Permanently affordable</div>
+  <div class="trust-item"><span class="trust-check">✓</span> 80% AMI or below</div>
+  <div class="trust-item"><span class="trust-check">✓</span> Community preference priority</div>
+  <div class="trust-item"><span class="trust-check">✓</span> No immigration status required to apply</div>
+  <div class="trust-item"><span class="trust-check">✓</span> Free application assistance in your language</div>
+  <div class="trust-item"><span class="trust-check">✓</span> City of Seattle · Sound Transit partnership</div>
+</div>
+
+<!-- ELIGIBILITY CHECKER -->
+<section class="checker-section" id="check">
+  <div class="checker-inner">
+    <div class="checker-left">
+      <span class="eyebrow">Am I eligible?</span>
+      <h2>Check your eligibility in 60 seconds</h2>
+      <p>You may qualify even if you're unsure. Many families think they don't qualify because of credit history, savings, or past housing challenges — but our program has paths for many situations. We never share your information without your consent.</p>
+
+      <div class="ami-table" style="margin-top:1.5rem">
+        <div class="ami-table-header">
+          <span>Household size</span>
+          <span>Max income<br>(80% AMI)</span>
+          <span>Max income<br>(60% AMI)</span>
+        </div>
+        <div class="ami-row"><span>1 person</span><span>$77,000</span><span>$57,750</span></div>
+        <div class="ami-row"><span>2 people</span><span>$88,000</span><span>$66,000</span></div>
+        <div class="ami-row"><span>3 people</span><span>$99,000</span><span>$74,250</span></div>
+        <div class="ami-row ami-hl"><span class="ami-hl ct-label">4 people</span><span>$110,000</span><span>$82,500</span></div>
+        <div class="ami-row"><span>5 people</span><span>$118,800</span><span>$89,100</span></div>
+        <div class="ami-row"><span>6 people</span><span>$127,600</span><span>$95,700</span></div>
+        <div class="ami-note">2024 King County AMI figures. Based on combined gross household income before taxes.</div>
+      </div>
+    </div>
+
+    <div class="checker-right">
+      <div class="checker-card">
+        <h3>Quick eligibility check</h3>
+
+        <div class="check-group">
+          <label class="check-label">Total household size (all people living with you)</label>
+          <select class="check-select" id="hhsize">
+            <option value="">Select household size</option>
+            <option value="1">1 person</option>
+            <option value="2">2 people</option>
+            <option value="3">3 people</option>
+            <option value="4">4 people</option>
+            <option value="5">5 people</option>
+            <option value="6">6 or more people</option>
+          </select>
+        </div>
+
+        <div class="check-group">
+          <label class="check-label">Total annual household income (before taxes)</label>
+          <select class="check-select" id="income">
+            <option value="">Select income range</option>
+            <option value="0-60k">Under $60,000</option>
+            <option value="60-80k">$60,000 – $80,000</option>
+            <option value="80-100k">$80,000 – $100,000</option>
+            <option value="100-120k">$100,000 – $120,000</option>
+            <option value="120k+">Over $120,000</option>
+          </select>
+        </div>
+
+        <div class="check-group">
+          <label class="check-label">Do you currently own a home?</label>
+          <select class="check-select" id="owned">
+            <option value="">Select one</option>
+            <option value="no">No, I am renting or without stable housing</option>
+            <option value="yes-recent">Yes, within the last 3 years</option>
+            <option value="yes-old">I owned one more than 3 years ago</option>
+          </select>
+        </div>
+
+        <div class="check-group">
+          <label class="check-label">Do you live or work in King County?</label>
+          <select class="check-select" id="location">
+            <option value="">Select one</option>
+            <option value="yes-rv">Yes — I live in Rainier Valley</option>
+            <option value="yes-kc">Yes — elsewhere in King County</option>
+            <option value="displaced">I used to live in Rainier Valley (displaced)</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+
+        <button class="btn-primary" style="width:100%;margin-top:.25rem" onclick="checkEligibility()">Check my eligibility →</button>
+
+        <div class="result-box eligible" id="result-yes">
+          <div class="result-icon">🏡</div>
+          <div class="result-title">You may qualify for this program.</div>
+          <div class="result-body">
+            Based on what you shared, you appear to meet the basic eligibility criteria.
+            <strong>Rainier Valley residents and those displaced from the neighborhood receive priority.</strong>
+            The next step is to join our interest list — homes are subject to availability and released in phases. We'll contact you in your language when units open and help you prepare your full application at no cost.
+          </div>
+          <span class="result-cta" onclick="showTab(0)">Join the interest list →</span>
+        </div>
+
+        <div class="result-box ineligible" id="result-maybe">
+          <div class="result-icon">📋</div>
+          <div class="result-title">You might still qualify — let's talk.</div>
+          <div class="result-body">
+            Some circumstances that appear disqualifying have exceptions. Current homeowners who sold more than 3 years ago, income that varies seasonally, or debt that can be addressed through our Debt Barrier Removal Program may still qualify. Please join our list and we'll reach out to review your situation with no obligation.
+          </div>
+          <span class="result-cta" onclick="showTab(0)">Join interest list anyway →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="hiw">
+  <div class="hiw-header">
+    <span class="eyebrow">The process</span>
+    <h2>From first step to front door</h2>
+    <p>A three-step path designed for AANHPI families — with free multilingual support at every stage. Homes are subject to availability; joining the interest list ensures you hear first when units open.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <span class="step-num">01</span>
+      <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg></div>
+      <h4>Check eligibility &amp; join the list</h4>
+      <p>Use our 60-second checker above. If you might qualify, join the interest list at no cost and no obligation. You'll receive updates in your language as homes become available.</p>
+      <span class="step-time">5 minutes</span>
+    </div>
+    <div class="step">
+      <span class="step-num">02</span>
+      <div class="step-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+      <h4>Submit your application</h4>
+      <p>Online, by phone, or in person with a case worker who speaks your language. We help you gather income verification, ID, and tax returns — don't let missing documents stop you from applying.</p>
+      <span class="step-time">1–2 hours</span>
+    </div>
+    <div class="step">
+      <span class="step-num">03</span>
+      <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <h4>Selection &amp; homebuyer education</h4>
+      <p>Selected applicants complete a homebuyer education course available in Vietnamese, Mandarin, and Tagalog. Then you meet your home and begin the path to closing day.</p>
+      <span class="step-time">8–12 hours total</span>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS SECTION -->
+<section class="compare" id="partners" style="background:var(--sage-l);padding:4rem 2rem;border-top:1px solid var(--sage-border)">
+  <div class="compare-header">
+    <span class="eyebrow">Our partners</span>
+    <h2>Built together with community organizations rooted in Rainier Valley</h2>
+  </div>
+  <div style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem">
+    <div style="background:white;border:1px solid var(--border);border-radius:var(--r2);padding:1.75rem">
+      <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--forest);margin-bottom:.5rem">City of Seattle<br>Office of Housing</div>
+      <div style="font-size:.825rem;color:var(--text-s);line-height:1.65">Program funder and land provider. Sound Transit surplus sites transferred to OH at no cost to create permanently affordable homes.</div>
+    </div>
+    <div style="background:white;border:1px solid var(--border);border-radius:var(--r2);padding:1.75rem">
+      <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--forest);margin-bottom:.5rem">Habitat for Humanity<br>Seattle–King &amp; Kittitas</div>
+      <div style="font-size:.825rem;color:var(--text-s);line-height:1.65">Co-developer and construction partner with deep experience building permanently affordable homeownership along MLK Jr. Way South.</div>
+    </div>
+    <div style="background:white;border:1px solid var(--border);border-radius:var(--r2);padding:1.75rem">
+      <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--forest);margin-bottom:.5rem">Sound Transit</div>
+      <div style="font-size:.825rem;color:var(--text-s);line-height:1.65">Surplus parcels transferred to the City to create transit-oriented affordable homeownership along the 1 Line light rail corridor.</div>
+    </div>
+  </div>
+  <p style="text-align:center;max-width:600px;margin:2rem auto 0;font-size:.8rem;color:var(--text-m);line-height:1.7">
+    All homes are developed through the Rainier Valley Affordable Homeownership Initiative (RVAHI), a partnership between the City of Seattle and Sound Transit. <strong>Homes are subject to availability.</strong> Joining the interest list does not guarantee selection or purchase. The City of Seattle's Community Preference Policy governs selection priority.
+  </p>
+</section>
+
+<!-- LANGUAGE CARDS -->
+<section class="lang-section" id="languages">
+  <div class="lang-header">
+    <span class="eyebrow">Language support</span>
+    <h2>We are here in your language</h2>
+    <p>Our outreach team includes staff and community partners who speak the languages of Rainier Valley. Every step of the application — from eligibility check to closing day — is available in your language.</p>
+  </div>
+  <div class="lang-cards">
+    <div class="lang-card active" onclick="setLang('en')">
+      <div class="lc-native">English</div>
+      <span class="lc-english">English</span>
+      <div class="lc-tagline">Full support — application, counseling, and homebuyer education in English.</div>
+      <span class="lc-pop">29,897 Seattle speakers</span>
+    </div>
+    <div class="lang-card" onclick="setLang('vi')">
+      <div class="lc-native" style="font-family:'Noto Sans',sans-serif">Tiếng Việt</div>
+      <span class="lc-english">Vietnamese</span>
+      <div class="lc-tagline">Hỗ trợ đầy đủ — đơn xin, tư vấn, và giáo dục mua nhà bằng tiếng Việt.</div>
+      <span class="lc-pop">9,016 Seattle speakers</span>
+    </div>
+    <div class="lang-card" onclick="setLang('zh')">
+      <div class="lc-native" style="font-family:'Noto Sans SC',sans-serif">中文</div>
+      <span class="lc-english">Mandarin / Cantonese</span>
+      <div class="lc-tagline" style="font-family:'Noto Sans SC',sans-serif">全面支持——申请、咨询和购房教育均提供中文服务。</div>
+      <span class="lc-pop">29,897 Seattle speakers</span>
+    </div>
+    <div class="lang-card" onclick="setLang('tl')">
+      <div class="lc-native">Filipino / Tagalog</div>
+      <span class="lc-english">Tagalog / Filipino</span>
+      <div class="lc-tagline">Buong suporta — aplikasyon, pagpapayo, at edukasyon sa pagbili ng bahay sa Filipino.</div>
+      <span class="lc-pop">9,109 Seattle speakers</span>
+    </div>
+    <div class="lang-card" onclick="setLang('km')">
+      <div class="lc-native" style="font-family:'Noto Sans',sans-serif">ភាសាខ្មែរ</div>
+      <span class="lc-english">Khmer / Cambodian</span>
+      <div class="lc-tagline">ការគាំទ្រពេញលេញ — ការដាក់ពាក្យ ការប្រឹក្សា និងការអប់រំអំពីការទិញផ្ទះ ជាភាសាខ្មែរ។</div>
+      <span class="lc-pop">735 Seattle speakers</span>
+    </div>
+    <div class="lang-card" onclick="setLang('so')">
+      <div class="lc-native">Soomaali</div>
+      <span class="lc-english">Somali</span>
+      <div class="lc-tagline">Taageero buuxda — codsiga, la-talinta, iyo waxbarashada iibsiga guriga oo Soomaali ah.</div>
+      <span class="lc-pop">13,471 Seattle speakers (Afro-Asiatic)</span>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION FLOW MOCKUP -->
+<section class="apply-section" id="apply">
+  <div class="apply-header">
+    <span class="eyebrow">Apply now</span>
+    <h2>Interest list &amp; application</h2>
+    <p>Joining the interest list takes 5 minutes and commits you to nothing. <strong>Homes are subject to availability</strong> and released in phases along MLK Jr. Way South. When units open, we'll reach out in your language to walk through the full application with you.</p>
+  </div>
+
+  <div class="app-flow">
+    <div class="app-step-tabs">
+      <div class="app-tab active" onclick="showTab(0)">
+        <span class="tab-num">Step 1</span>
+        About You
+      </div>
+      <div class="app-tab" onclick="showTab(1)">
+        <span class="tab-num">Step 2</span>
+        Household
+      </div>
+      <div class="app-tab" onclick="showTab(2)">
+        <span class="tab-num">Step 3</span>
+        Housing Need
+      </div>
+      <div class="app-tab" onclick="showTab(3)">
+        <span class="tab-num">Step 4</span>
+        Documents
+      </div>
+      <div class="app-tab" onclick="showTab(4)">
+        <span class="tab-num">Step 5</span>
+        Submit
+      </div>
+    </div>
+
+    <!-- Panel 1: About You -->
+    <div class="app-panel active" id="panel-0">
+      <div class="app-panel-title">Tell us about yourself</div>
+      <div class="app-panel-sub">All information is kept confidential. You can complete this form in any language — just select yours above. Immigration status is not required and will not be asked.</div>
+      <div class="app-fields">
+        <div class="app-field">
+          <label>First name <span class="req">*</span></label>
+          <input class="app-input" type="text" placeholder="First name"/>
+        </div>
+        <div class="app-field">
+          <label>Last name <span class="req">*</span></label>
+          <input class="app-input" type="text" placeholder="Last name"/>
+        </div>
+        <div class="app-field">
+          <label>Email address <span class="req">*</span></label>
+          <input class="app-input" type="email" placeholder="your@email.com"/>
+        </div>
+        <div class="app-field">
+          <label>Phone number</label>
+          <input class="app-input" type="tel" placeholder="(206) 555-0100"/>
+        </div>
+        <div class="app-field">
+          <label>Preferred language for communication <span class="req">*</span></label>
+          <select class="app-select">
+            <option>English</option>
+            <option>Tiếng Việt (Vietnamese)</option>
+            <option>中文 (Chinese — Mandarin/Cantonese)</option>
+            <option>Filipino / Tagalog</option>
+            <option>ភាសាខ្មែរ (Khmer)</option>
+            <option>Soomaali (Somali)</option>
+            <option>Español (Spanish)</option>
+            <option>Other — please call us: 206-395-9808</option>
+          </select>
+        </div>
+        <div class="app-field">
+          <label>Preferred contact method</label>
+          <select class="app-select">
+            <option>Email</option>
+            <option>Phone call</option>
+            <option>Text message (SMS)</option>
+            <option>WhatsApp</option>
+            <option>Zalo</option>
+            <option>WeChat</option>
+          </select>
+        </div>
+        <div class="app-field full">
+          <label>Current address (city, neighborhood, or zip code)</label>
+          <input class="app-input" type="text" placeholder="e.g., Rainier Valley, 98118, or Columbia City"/>
+        </div>
+        <div class="app-check-group">
+          <label class="check-label" style="margin-bottom:.6rem">Rainier Valley connection (check all that apply)</label>
+          <label class="app-check-item"><input type="checkbox"/><span class="app-check-label">I currently live in Rainier Valley (priority consideration)</span></label>
+          <label class="app-check-item"><input type="checkbox"/><span class="app-check-label">I was displaced from Rainier Valley within the last 10 years (priority consideration)</span></label>
+          <label class="app-check-item"><input type="checkbox"/><span class="app-check-label">I work in Rainier Valley or along the MLK Jr. Way corridor</span></label>
+          <label class="app-check-item"><input type="checkbox"/><span class="app-check-label">I have family members currently living in Rainier Valley</span></label>
+        </div>
+      </div>
+      <div class="app-actions">
+        <div class="step-progress">
+          <div class="prog-dot current"></div>
+          <div class="prog-dot"></div>
+          <div class="prog-dot"></div>
+          <div class="prog-dot"></div>
+          <div class="prog-dot"></div>
+          <span style="margin-left:.25rem">Step 1 of 5</span>
+        </div>
+        <button class="btn-next" onclick="showTab(1)">Next: Household →</button>
+      </div>
+    </div>
+
+    <!-- Panel 2: Household -->
+    <div class="app-panel" id="panel-1">
+      <div class="app-panel-title">Your household</div>
+      <div class="app-panel-sub">Tell us about everyone who will live in the home. This helps us match you to the right home size — RVAHI homes range from 1 to 4+ bedrooms.</div>
+      <div class="app-fields">
+        <div class="app-field">
+          <label>Total people in household <span class="req">*</span></label>
+          <select class="app-select">
+            <option>1 person (just me)</option>
+            <option>2 people</option>
+            <option>3 people</option>
+            <option>4 people</option>
+            <option>5 people</option>
+            <option>6 or more</option>
+          </select>
+        </div>
+        <div class="app-field">
+          <label>Number of children under 18</label>
+          <select class="app-select">
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4 or more</option>
+          </select>
+        </div>
+        <div class="app-field">
+          <label>Bedrooms needed <span class="req">*</span></label>
+          <select class="app-select">
+            <option>1 bedroom</option>
+            <option>2 bedrooms</option>
+            <option>3 bedrooms</option>
+            <option>4+ bedrooms</option>
+          </select>
+        </div>
+        <div class="app-field">
+          <label>Total annual household income <span class="req">*</span></label>
+          <select class="app-select">
+            <option>Under $50,000</option>
+            <option>$50,000 – $70,000</option>
+            <option>$70,000 – $90,000</option>
+            <option>$90,000 – $110,000</option>
+            <option>$110,000 – $130,000</option>
+            <option>Over $130,000</option>
+          </select>
+        </div>
+        <div class="app-field">
+          <label>Employment status of primary applicant</label>
+          <select class="app-select">
+            <option>Full-time employed (same employer 1+ year)</option>
+            <option>Part-time employed</option>
+            <option>Self-employed (2+ years)</option>
+            <option>Recently changed jobs (under 1 year)</option>
+            <option>Receiving disability or SSI</option>
+            <option>Other / combination</option>
+          </select>
+        </div>
+        <div class="app-field">
+          <label>Have you owned a home in the last 3 years?</label>
+          <select class="app-select">
+            <option>No — I am a first-time buyer or have not owned in 3+ years</option>
+            <option>Yes — I currently own a home</option>
+            <option>I owned one but sold it more than 3 years ago</option>
+          </select>
+        </div>
+        <div class="app-check-group">
+          <label class="check-label" style="margin-bottom:.6rem">Are any household members (check all that apply):</label>
+          <label class="app-check-item"><input type="checkbox"/><span class="app-check-label">U.S. veterans or active military</span></label>
+          <label class="app-check-item"><input type="checkbox"/><span class="app-check-label">Persons with disabilities who need accessible home features</span></label>
+          <label class="app-check-item"><input type="checkbox"/><span class="app-check-label">Seniors (65+) who will be primary residents</span></label>
+        </div>
+      </div>
+      <div class="app-actions">
+        <button class="btn-back" onclick="showTab(0)">← Back</button>
+        <div class="step-progress">
+          <div class="prog-dot done"></div>
+          <div class="prog-dot current"></div>
+          <div class="prog-dot"></div>
+          <div class="prog-dot"></div>
+          <div class="prog-dot"></div>
+          <span style="margin-left:.25rem">Step 2 of 5</span>
+        </div>
+        <button class="btn-next" onclick="showTab(2)">Next: Housing Need →</button>
+      </div>
+    </div>
+
+    <!-- Panel 3: Housing Need -->
+    <div class="app-panel" id="panel-2">
+      <div class="app-panel-title">Your current housing situation</div>
+      <div class="app-panel-sub">We ask about your housing situation to understand your need — not to judge it. There are no wrong answers. This information is kept confidential and used only to evaluate your application.</div>
+      <div class="app-fields">
+        <div class="app-field full">
+          <label>Current housing situation <span class="req">*</span></label>
+          <select class="app-select">
+            <option>Renting — cost is more than 30% of my income</option>
+            <option>Renting — home is overcrowded for my family</option>
+            <option>Renting — home has safety or health issues</option>
+            <option>Living with family or friends (doubled up)</option>
+            <option>In transitional or temporary housing</option>
+            <option>Renting — stable but want to build equity</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="app-field">
+          <label>Current monthly rent or housing cost</label>
+          <select class="app-select">
+            <option>Under $1,000</option>
+            <option>$1,000 – $1,500</option>
+            <option>$1,500 – $2,000</option>
+            <option>$2,000 – $2,500</option>
+            <option>$2,500 – $3,000</option>
+            <option>Over $3,000</option>
+          </select>
+        </div>
+        <div class="app-field">
+          <label>How long have you lived in your current situation?</label>
+          <select class="app-select">
+            <option>Less than 1 year</option>
+            <option>1–3 years</option>
+            <option>3–5 years</option>
+            <option>More than 5 years</option>
+          </select>
+        </div>
+        <div class="app-field full">
+          <label>Briefly describe why homeownership matters to your family (optional)</label>
+          <textarea class="app-input" rows="3" placeholder="In your own words — any language is fine. This is for our team to understand your family's situation." style="resize:vertical"></textarea>
+        </div>
+        <div class="app-check-group">
+          <label class="check-label" style="margin-bottom:.6rem">I need help with (check all that apply):</label>
+          <label class="app-check-item"><input type="checkbox"/><span class="app-check-label">Understanding credit reports and credit scores</span></label>
+          <label class="app-check-item"><input type="checkbox"/><span class="app-check-label">Removing debt as a barrier (Debt Barrier Removal Program)</span></label>
+          <label class="app-check-item"><input type="checkbox"/><span class="app-check-label">Gathering documents (tax returns, income verification)</span></label>
+          <label class="app-check-item"><input type="checkbox"/><span class="app-check-label">Understanding what a community land trust is</span></label>
+          <label class="app-check-item"><input type="checkbox"/><span class="app-check-label">Translation or interpretation during the application</span></label>
+        </div>
+      </div>
+      <div class="app-actions">
+        <button class="btn-back" onclick="showTab(1)">← Back</button>
+        <div class="step-progress">
+          <div class="prog-dot done"></div>
+          <div class="prog-dot done"></div>
+          <div class="prog-dot current"></div>
+          <div class="prog-dot"></div>
+          <div class="prog-dot"></div>
+          <span style="margin-left:.25rem">Step 3 of 5</span>
+        </div>
+        <button class="btn-next" onclick="showTab(3)">Next: Documents →</button>
+      </div>
+    </div>
+
+    <!-- Panel 4: Documents -->
+    <div class="app-panel" id="panel-3">
+      <div class="app-panel-title">Documents you'll need</div>
+      <div class="app-panel-sub">You don't need to upload anything right now. This step shows you what to gather so you're ready when we contact you. Our team will help you collect documents in person or by phone.</div>
+
+      <div class="app-doc-list">
+        <h4>Required documents (gather these before your interview)</h4>
+        <div class="doc-item">Government-issued photo ID for all adult applicants (driver's license, passport, or Consular ID — immigration status not required)</div>
+        <div class="doc-item">2 most recent federal tax returns for all household members with income</div>
+        <div class="doc-item">3 most recent pay stubs or income statements (all household earners)</div>
+        <div class="doc-item">3 most recent bank account statements</div>
+        <div class="doc-item">Documentation of any other income (SSI, disability, child support, rental income)</div>
+        <div class="doc-item">Landlord name and contact for rental history verification</div>
+      </div>
+
+      <div class="app-note">
+        <strong>Don't have some of these?</strong> That's okay. If you are self-employed, recently changed jobs, receive cash income, or have non-traditional documentation, our team will work with you. We have helped families in every situation — please don't let missing documents stop you from applying.
+      </div>
+
+      <div class="app-check-group" style="grid-column:span 2;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.75rem">
+        <label style="font-size:.85rem;font-weight:700;color:var(--text);margin-bottom:.4rem;display:block">I can gather (check what applies):</label>
+        <label class="app-check-item"><input type="checkbox"/><span class="app-check-label">Government ID for all adults</span></label>
+        <label class="app-check-item"><input type="checkbox"/><span class="app-check-label">Tax returns for past 2 years</span></label>
+        <label class="app-check-item"><input type="checkbox"/><span class="app-check-label">Recent pay stubs or income proof</span></label>
+        <label class="app-check-item"><input type="checkbox"/><span class="app-check-label">Bank statements</span></label>
+        <label class="app-check-item"><input type="checkbox"/><span class="app-check-label">I need help gathering some of these — please contact me</span></label>
+      </div>
+
+      <div class="app-actions">
+        <button class="btn-back" onclick="showTab(2)">← Back</button>
+        <div class="step-progress">
+          <div class="prog-dot done"></div>
+          <div class="prog-dot done"></div>
+          <div class="prog-dot done"></div>
+          <div class="prog-dot current"></div>
+          <div class="prog-dot"></div>
+          <span style="margin-left:.25rem">Step 4 of 5</span>
+        </div>
+        <button class="btn-next" onclick="showTab(4)">Next: Submit →</button>
+      </div>
+    </div>
+
+    <!-- Panel 5: Submit -->
+    <div class="app-panel" id="panel-4">
+      <div class="app-panel-title">You're almost done.</div>
+      <div class="app-panel-sub">Review your information below, then submit to join the Jabooda Cares RVAHI interest list. A member of our team will contact you within 5 business days in your preferred language.</div>
+
+      <div class="app-note" style="background:var(--sage-l);border-color:var(--sage-border)">
+        <strong style="color:var(--moss)">What happens after you submit:</strong><br>
+        1. You'll receive a confirmation email (or SMS in your language) within 24 hours.<br>
+        2. A case worker will reach out within 5 business days to schedule a welcome call.<br>
+        3. When homes become available (subject to availability — released in phases), you'll be notified by your preferred method.<br>
+        4. There is no cost and no obligation until you choose to proceed to a full application.
+      </div>
+
+      <div class="app-fields">
+        <div class="app-field full">
+          <label>How did you hear about this program?</label>
+          <select class="app-select">
+            <option>Community organization or nonprofit</option>
+            <option>Friend or family member</option>
+            <option>Social media (Facebook, Instagram, WeChat, Zalo)</option>
+            <option>Flyer or community posting</option>
+            <option>City of Seattle or Sound Transit</option>
+            <option>AREAA Greater Seattle</option>
+            <option>Religious institution or community center</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="app-check-group">
+          <label class="app-check-item">
+            <input type="checkbox"/>
+            <span class="app-check-label">I understand that submitting this form adds me to the interest list and does not guarantee selection or purchase. I consent to Jabooda Cares contacting me in my preferred language about homeownership opportunities. <span class="req">*</span></span>
+          </label>
+          <label class="app-check-item">
+            <input type="checkbox"/>
+            <span class="app-check-label">I understand that the City of Seattle's Community Preference Policy gives priority to current and displaced Rainier Valley residents. I believe I may qualify for priority consideration.</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="app-actions">
+        <button class="btn-back" onclick="showTab(3)">← Back</button>
+        <div class="step-progress">
+          <div class="prog-dot done"></div>
+          <div class="prog-dot done"></div>
+          <div class="prog-dot done"></div>
+          <div class="prog-dot done"></div>
+          <div class="prog-dot current"></div>
+          <span style="margin-left:.25rem">Step 5 of 5</span>
+        </div>
+        <button class="btn-next" style="background:var(--cedar-w)" id="submit-btn" onclick="submitForm()">Submit →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUCCESS STATE — hidden until submit completes -->
+  <div id="success-panel" style="display:none;max-width:860px;margin:0 auto;background:white;border:1px solid var(--sage-border);border-radius:var(--r2);padding:3rem;text-align:center;">
+    <div style="font-size:3rem;margin-bottom:1rem">🏡</div>
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--forest);margin-bottom:.75rem" id="success-title">You're on the list.</h3>
+    <p style="color:var(--text-s);max-width:480px;margin:0 auto 1.5rem;line-height:1.8" id="success-body">Thank you for joining the RVAHI interest list. A confirmation has been sent to your email. A member of our team will contact you within 5 business days in your preferred language.</p>
+    <div style="background:var(--cedar-f);border:1px solid var(--cedar-l);border-radius:var(--r);padding:1rem 1.5rem;display:inline-block;margin-bottom:1.5rem">
+      <p style="font-size:.82rem;color:var(--cedar-w);font-weight:600;margin-bottom:.25rem">Important reminder</p>
+      <p style="font-size:.82rem;color:var(--text-s)">Homes are subject to availability. This list does not guarantee selection or purchase. We will notify you when homes open in your phase.</p>
+    </div>
+    <div><p style="font-size:.8rem;color:var(--text-m)">Questions? Call us at <strong>206-395-9808</strong> or email <strong>robert@jabooda.com</strong></p></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <span class="eyebrow">Common questions</span>
+      <h2>Answers for the questions people don't ask out loud</h2>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Do I need to be a U.S. citizen to apply?</span>
+        <div class="faq-icon"><svg viewBox="0 0 24 24" width="20" height="20"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </div>
+      <div class="faq-a">No. Citizenship is not required to apply, to be selected, or to purchase a home through this program. Immigration status is not collected on the application and is not a factor in selection. Many RVAHI homeowners are permanent residents, DACA recipients, or have mixed-status households.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">What does "permanently affordable" actually mean?</span>
+        <div class="faq-icon"><svg viewBox="0 0 24 24" width="20" height="20"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </div>
+      <div class="faq-a">Most affordable housing programs stay affordable for a fixed period — often 20 or 30 years — then return to the market. RVAHI homes are held in a community land trust (CLT), meaning the land is owned by the trust forever, and a deed restriction ensures the home stays affordable for every future buyer. When you sell, you build equity based on a formula — you gain value, but the next buyer can also afford the home. Your family builds wealth. The community keeps affordability. Both.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">My credit is not good. Can I still apply?</span>
+        <div class="faq-icon"><svg viewBox="0 0 24 24" width="20" height="20"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </div>
+      <div class="faq-a">Yes. There is no minimum credit score to apply. What matters is a history of on-time payments and no active disputes — not a perfect score. If you have debt, collections, or past financial hardship, our Debt Barrier Removal Program may be able to help address these before your application is reviewed. Apply first. Our team will tell you exactly what options exist for your situation.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">I was forced to move out of Rainier Valley. Can I still get priority?</span>
+        <div class="faq-icon"><svg viewBox="0 0 24 24" width="20" height="20"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </div>
+      <div class="faq-a">Yes. The City of Seattle's Community Preference Policy specifically includes people who have been displaced from Rainier Valley. If you or your family were priced out of the neighborhood, you retain priority consideration even if you no longer live there. We understand displacement is not a choice — this program exists partly to reverse it.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">How much money do I need saved to buy one of these homes?</span>
+        <div class="faq-icon"><svg viewBox="0 0 24 24" width="20" height="20"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </div>
+      <div class="faq-a">You need approximately 1% of the purchase price set aside at the time of application — typically between $3,000 and $7,000 depending on the home. This is significantly less than the 5–20% down payment required in conventional home purchases. Down payment assistance programs may also be available to reduce this further. Our team can help you understand all available resources.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Will I have to do construction work like Habitat for Humanity requires?</span>
+        <div class="faq-icon"><svg viewBox="0 0 24 24" width="20" height="20"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </div>
+      <div class="faq-a">No. Unlike traditional Habitat for Humanity programs, RVAHI does not require sweat equity labor hours as a condition of purchase. Community service is encouraged and opportunities are available, but it is not a requirement. If you want to be involved in the community building process, we welcome that — but your eligibility does not depend on it.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <span class="eyebrow">Ready to take the first step?</span>
+      <h2>Join the interest list today.</h2>
+      <p>It takes 5 minutes. No cost, no obligation. Homes are subject to availability and released in phases along MLK Jr. Way South — being on the interest list ensures you hear first when units open, in your language, through the channel you prefer.</p>
+    </div>
+    <div class="cta-acts">
+      <button class="btn-primary" onclick="showTab(0);document.getElementById('apply').scrollIntoView({behavior:'smooth'})">Start my application →</button>
+      <a href="tel:2063959808" style="display:block;text-align:center;padding:.85rem 2rem;border-radius:var(--r);font-size:.875rem;font-weight:500;color:rgba(255,255,255,.75);border:1.5px solid rgba(255,255,255,.25)">Call us: 206-395-9808</a>
+      <p style="font-size:.72rem;color:rgba(255,255,255,.35);text-align:center;margin-top:.25rem">Free application assistance in EN · 中文 · Việt · Filipino · Khmer · Soomaali</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Jabooda Cares · EIN 99-4589825 · 501(c)(3) · 2101 S Grand St Seattle WA 98144 · In partnership with City of Seattle Office of Housing and Sound Transit · Equal Housing Opportunity ⊕</p>
+</footer>
+
+<script>
+/* ── Language content ── */
+const CONTENT = {
+  en:{
+    kicker:"Rainier Valley Affordable Homeownership Initiative · Seattle Office of Housing",
+    h1:"Your family belongs<br>in <em>Rainier Valley.</em>",
+    sub:"Permanently affordable homes for first-time homebuyers along MLK Jr. Way South. Priority given to current and displaced Rainier Valley residents, and communities historically excluded from homeownership — including AANHPI families.",
+    btn1:"Check if I qualify",btn2:"Start application"
+  },
+  vi:{
+    kicker:"Sáng kiến Nhà ở Giá rẻ Thung lũng Rainier · Văn phòng Nhà ở Seattle",
+    h1:"Gia đình bạn thuộc về<br><em>Thung lũng Rainier.</em>",
+    sub:"Những ngôi nhà giá cả phải chăng vĩnh viễn dành cho người mua nhà lần đầu dọc theo Đại lộ MLK Jr. Way South. Ưu tiên cho cư dân hiện tại và bị di dời của Rainier Valley, và các cộng đồng bị loại trừ lịch sử khỏi quyền sở hữu nhà — bao gồm các gia đình AANHPI.",
+    btn1:"Kiểm tra điều kiện của tôi",btn2:"Bắt đầu đăng ký"
+  },
+  zh:{
+    kicker:"雷尼尔谷经济适用房所有权计划 · 西雅图住房办公室",
+    h1:"您的家庭属于<br><em>雷尼尔谷。</em>",
+    sub:"为MLK Jr. Way南部沿线的首次购房者提供永久实惠的住房。优先考虑雷尼尔谷现有和流离失所的居民，以及历史上被排除在房屋所有权之外的社区——包括AANHPI家庭。",
+    btn1:"检查我的资格",btn2:"开始申请"
+  },
+  tl:{
+    kicker:"Rainier Valley Affordable Homeownership Initiative · Opisina ng Pabahay ng Seattle",
+    h1:"Ang inyong pamilya ay<br>kabilang sa <em>Rainier Valley.</em>",
+    sub:"Permanenteng abot-kayang mga tahanan para sa mga unang beses na mamimili ng bahay sa MLK Jr. Way South. Prayoridad ang mga kasalukuyan at nalipin na residente ng Rainier Valley, at mga komunidad na matagal nang hindi kasama sa pagmamay-ari ng bahay — kabilang ang mga pamilyang AANHPI.",
+    btn1:"Suriin ang aking kwalipikasyon",btn2:"Simulan ang aplikasyon"
+  },
+  km:{
+    kicker:"គំនិតផ្តួចផ្តើមលំនៅដ្ឋានដែលអាចទទួលយកបាន Rainier Valley · ការិយាល័យលំនៅដ្ឋានស៊ីអែល",
+    h1:"គ្រួសាររបស់អ្នកជាកម្មសិទ្ធិ<br>នៃ <em>Rainier Valley។</em>",
+    sub:"ផ្ទះដែលអាចទទួលយកបានជាអចិន្ត្រៃយ៍សម្រាប់អ្នកទិញផ្ទះលើកដំបូង។ អាទិភាពត្រូវបានផ្តល់ឱ្យអ្នករស់នៅ Rainier Valley បច្ចុប្បន្ន និងអ្នកដែលត្រូវបានផ្លាស់ប្តូរ។",
+    btn1:"ពិនិត្យលក្ខណៈសម្បត្តិរបស់ខ្ញុំ",btn2:"ចាប់ផ្តើមដាក់ពាក្យ"
+  },
+  so:{
+    kicker:"Rainier Valley Affordable Homeownership Initiative · Xafiiska Guryaha ee Seattle",
+    h1:"Qoyskaagu u qabilanyahay<br><em>Rainier Valley.</em>",
+    sub:"Guryaha joogtada ah ee qiimaha macquulka ah ee loogu talagalay kuwa markii ugu horeysa guriga iibsanaya. Mudanaha waxaa la siinayaa kan deganaanshaha hadda jira iyo kuwa barakacay ee Rainier Valley.",
+    btn1:"Hubi xaaladteyda",btn2:"Bilow codsiga"
+  },
+  es:{
+    kicker:"Iniciativa de Propiedad de Vivienda Asequible del Valle Rainier · Oficina de Vivienda de Seattle",
+    h1:"Su familia pertenece al<br><em>Valle Rainier.</em>",
+    sub:"Viviendas permanentemente asequibles para compradores de primera vivienda a lo largo de MLK Jr. Way South. Prioridad para residentes actuales y desplazados del Valle Rainier.",
+    btn1:"Verificar mi elegibilidad",btn2:"Iniciar solicitud"
+  }
+};
+
+function setLang(lang){
+  const c = CONTENT[lang]||CONTENT.en;
+  document.getElementById('hero-kicker-text').textContent = c.kicker;
+  document.getElementById('hero-h1').innerHTML = c.h1;
+  document.getElementById('hero-sub').textContent = c.sub;
+  document.getElementById('hero-btn1').textContent = c.btn1;
+  document.getElementById('hero-btn2').textContent = c.btn2;
+  document.querySelectorAll('.lang-pill').forEach((p,i)=>{
+    const langs=['en','zh','vi','tl','km','so','es'];
+    p.classList.toggle('active',langs[i]===lang);
+  });
+  document.querySelectorAll('.lang-card').forEach((c,i)=>{
+    const langs=['en','vi','zh','tl','km','so'];
+    c.classList.toggle('active',langs[i]===lang);
+  });
+  // Set Noto Sans variant for CJK characters
+  if(lang==='zh'){document.body.style.fontFamily="'Noto Sans SC','Noto Sans',sans-serif"}
+  else if(lang==='ja'){document.body.style.fontFamily="'Noto Sans JP','Noto Sans',sans-serif"}
+  else{document.body.style.fontFamily="'Noto Sans',system-ui,sans-serif"}
+}
+
+/* Detect browser language on load */
+(function(){
+  const bl = navigator.language||'en';
+  const map={'zh':'zh','vi':'vi','tl':'tl','fil':'tl','km':'km','so':'so','es':'es'};
+  const prefix = bl.split('-')[0].toLowerCase();
+  if(map[prefix]) setLang(map[prefix]);
+})();
+
+/* ── Tab navigation ── */
+function showTab(idx){
+  document.querySelectorAll('.app-tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+  document.querySelectorAll('.app-panel').forEach((p,i)=>p.classList.toggle('active',i===idx));
+}
+
+/* ── Eligibility checker ── */
+const AMI_LIMITS = {1:77000,2:88000,3:99000,4:110000,5:118800,6:127600};
+// Low end of each range — gives benefit of the doubt to the applicant
+const INCOME_LOW = {'0-60k':0,'60-80k':60000,'80-100k':80000,'100-120k':100000,'120k+':120000};
+
+function checkEligibility(){
+  const hhsize = parseInt(document.getElementById('hhsize').value)||0;
+  const incomeRange = document.getElementById('income').value;
+  const owned = document.getElementById('owned').value;
+  const location = document.getElementById('location').value;
+  if(!hhsize||!incomeRange||!owned||!location){
+    alert('Please answer all four questions to check your eligibility.');return;
+  }
+  const incomeLow = INCOME_LOW[incomeRange];
+  const limit = AMI_LIMITS[Math.min(hhsize,6)];
+  // If the LOW end of their range is already over the limit, they're likely over.
+  // If the low end is under, they may qualify — route to "you may qualify" and confirm in interview.
+  const incomeOk = incomeLow <= limit;
+  const ownedOk = owned !== 'yes-recent';
+  const locOk = location !== 'no';
+  document.getElementById('result-yes').classList.remove('show');
+  document.getElementById('result-maybe').classList.remove('show');
+  // Scroll result into view
+  const target = (incomeOk && ownedOk && locOk)
+    ? document.getElementById('result-yes')
+    : document.getElementById('result-maybe');
+  target.classList.add('show');
+  setTimeout(()=>target.scrollIntoView({behavior:'smooth',block:'nearest'}),50);
+}
+
+/* ── Form submission ── */
+// STEP: Replace this URL with your deployed Google Apps Script Web App URL
+// Extensions → Apps Script → Deploy → New deployment → Web App
+// Execute as: Me · Who has access: Anyone → Copy the URL and paste below
+const APPS_SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+function collectFormData() {
+  // Collect checkboxes as arrays
+  const rvBoxes = [...document.querySelectorAll('.app-check-item input[type=checkbox]')]
+    .filter(cb => cb.closest('.app-check-group') && cb.closest('#panel-0'))
+    .filter(cb => cb.checked)
+    .map(cb => cb.nextElementSibling?.textContent?.trim() || '');
+
+  const memberBoxes = [...document.querySelectorAll('#panel-1 .app-check-group input')]
+    .filter(cb => cb.checked)
+    .map(cb => cb.nextElementSibling?.textContent?.trim() || '');
+
+  const helpBoxes = [...document.querySelectorAll('#panel-2 .app-check-group input')]
+    .filter(cb => cb.checked)
+    .map(cb => cb.nextElementSibling?.textContent?.trim() || '');
+
+  const docBoxes = [...document.querySelectorAll('#panel-3 input[type=checkbox]')]
+    .filter(cb => cb.checked)
+    .map(cb => cb.nextElementSibling?.textContent?.trim() || '');
+
+  // Named selects from each panel
+  const sel = (id) => document.getElementById(id)?.value || '';
+  const inp = (placeholder) => {
+    const el = [...document.querySelectorAll('.app-input')]
+      .find(i => i.placeholder === placeholder);
+    return el?.value || '';
+  };
+  const selByPlaceholder = (opt) => {
+    const el = [...document.querySelectorAll('.app-select')]
+      .find(s => s.options[0]?.text === opt || [...s.options].some(o => o.text === opt));
+    return el?.value || el?.options[el?.selectedIndex]?.text || '';
+  };
+
+  return {
+    firstName:         inp('First name'),
+    lastName:          inp('Last name'),
+    email:             inp('your@email.com'),
+    phone:             inp('(206) 555-0100'),
+    language:          selByPlaceholder('English'),
+    contactMethod:     selByPlaceholder('Email'),
+    address:           inp('e.g., Rainier Valley, 98118, or Columbia City'),
+    rvConnection:      rvBoxes,
+    hhSize:            selByPlaceholder('1 person (just me)'),
+    childrenUnder18:   selByPlaceholder('0'),
+    bedroomsNeeded:    selByPlaceholder('1 bedroom'),
+    income:            selByPlaceholder('Under $50,000'),
+    employment:        selByPlaceholder('Full-time employed (same employer 1+ year)'),
+    ownsHome:          selByPlaceholder('No — I am a first-time buyer or have not owned in 3+ years'),
+    householdMembers:  memberBoxes,
+    housingSituation:  selByPlaceholder('Renting — cost is more than 30% of my income'),
+    monthlyRent:       selByPlaceholder('Under $1,000'),
+    timeInHousing:     selByPlaceholder('Less than 1 year'),
+    whyHomeownership:  [...document.querySelectorAll('textarea')][0]?.value || '',
+    needsHelpWith:     helpBoxes,
+    canGatherDocs:     docBoxes,
+    howHeard:          selByPlaceholder('Community organization or nonprofit')
+  };
+}
+
+async function submitForm() {
+  // Validate required consent checkbox
+  const consentBox = document.querySelector('#panel-4 .app-check-item input');
+  if (consentBox && !consentBox.checked) {
+    alert('Please check the consent checkbox before submitting.');
+    return;
+  }
+
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = 'Submitting…';
+  btn.disabled = true;
+
+  const data = collectFormData();
+
+  // If URL not configured yet, show a demo success (wireframe mode)
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes('PASTE_YOUR')) {
+    console.log('RVAHI form data (wireframe mode):', data);
+    showSuccess(data);
+    return;
+  }
+
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors', // Google Apps Script requires no-cors
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    // no-cors means we can't read the response — assume success if no network error
+    showSuccess(data);
+  } catch(err) {
+    btn.textContent = 'Submit →';
+    btn.disabled = false;
+    alert('There was a problem submitting your form. Please call us at 206-395-9808 or email robert@jabooda.com and we will add you to the list manually.');
+    console.error(err);
+  }
+}
+
+function showSuccess(data) {
+  // Hide the entire app flow, show success panel
+  document.querySelector('.app-flow').style.display = 'none';
+  const panel = document.getElementById('success-panel');
+  panel.style.display = 'block';
+
+  // Personalise success message with their name if provided
+  const name = data.firstName ? `, ${data.firstName}` : '';
+  document.getElementById('success-title').textContent = `You're on the list${name}.`;
+
+  // Show message in their language
+  const langSuccessMsg = {
+    'Tiếng Việt (Vietnamese)': 'Cảm ơn bạn đã đăng ký. Chúng tôi sẽ liên hệ với bạn trong vòng 5 ngày làm việc.',
+    '中文 (Chinese — Mandarin/Cantonese)': '感谢您的注册。我们将在5个工作日内与您联系。',
+    'Filipino / Tagalog': 'Salamat sa iyong pagrehistro. Makikipag-ugnayan kami sa iyo sa loob ng 5 araw ng trabaho.',
+    'ភាសាខ្មែរ (Khmer)': 'អរគុណចំពោះការចុះឈ្មោះ។ យើងនឹងទាក់ទងអ្នកក្នុងរយៈពេល 5 ថ្ងៃធ្វើការ។',
+    'Soomaali (Somali)': 'Mahadsanid diiwaangelintaada. Waxaan kula xiriiri doonaa 5 maalmood shaqo gudahood.',
+    'Español (Spanish)': 'Gracias por registrarse. Nos comunicaremos con usted dentro de los 5 días hábiles.'
+  };
+  const customMsg = langSuccessMsg[data.language];
+  if (customMsg) {
+    document.getElementById('success-body').textContent = customMsg + ' A confirmation has been sent to your email.';
+  }
+
+  panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+/* ── FAQ ── */
+function toggleFaq(qEl){
+  qEl.parentElement.classList.toggle('open');
+}
+</script>
+</body>
+</html>

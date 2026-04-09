@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Corporate Partners & CRA | Jabooda Cares</title>
-  <meta name="description" content="Jabooda Cares is a CHDO-designated 501(c)(3) developing affordable housing at 30% AMI in LMI census tracts in King County. CRA-qualifying community development partnerships." />
+  <meta name="description" content="Jabooda Cares is a CHDO-designated 501(c)(3) developing affordable housing in LMI census tracts in King County. CRA-qualifying community development partnerships." />
   <link rel="canonical" href="https://jaboodacares.org/partners" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Corporate Partners & CRA | Jabooda Cares" />
-  <meta property="og:description" content="CHDO-designated, WMBE-certified affordable housing developer in Seattle. CRA-qualifying projects in King County LMI census tracts." />
+  <meta property="og:description" content="CHDO-designated affordable housing developer in Seattle. CRA-qualifying projects in King County LMI census tracts." />
   <meta property="og:url" content="https://jaboodacares.org/partners" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://jaboodacares.org/images/og-partners.jpg" />
@@ -152,13 +152,22 @@
       position: relative;
       overflow: hidden;
     }
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      background-image: url('/images/achdo-hero.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.22;
+      pointer-events: none;
+    }
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(255,255,255,0.04) 0%, transparent 70%),
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+        linear-gradient(105deg, rgba(27,94,66,0.92) 0%, rgba(27,94,66,0.75) 60%, rgba(27,94,66,0.55) 100%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
       pointer-events: none;
     }
     .hero-inner {
@@ -826,6 +835,178 @@
     }
     .footer-links a:hover { color: rgba(255,255,255,0.75); }
 
+    /* ── HERO CAPTION ── */
+    .hero-photo-credit {
+      margin-top: 2rem;
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ── PARTNERSHIP TRACKS ── */
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .track-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .track-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+      transform: translateY(-2px);
+    }
+    .track-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--jade);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    .track-card.track-gold::after { background: var(--gold); }
+    .track-num {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 0.75rem;
+    }
+    .track-title {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      color: var(--ink);
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+    }
+    .track-range {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--jade);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .track-card.track-gold .track-range { color: var(--gold); }
+    .track-desc {
+      font-size: 0.875rem;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+    .track-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+      padding: 0.85rem 1rem;
+      background: var(--ground);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .track-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+    .track-meta-key {
+      font-size: 0.75rem;
+      color: var(--ink-soft);
+      flex-shrink: 0;
+    }
+    .track-meta-val {
+      font-size: 0.78rem;
+      color: var(--ink);
+      font-weight: 500;
+      text-align: right;
+    }
+    .track-cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--jade);
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .track-card.track-gold .track-cta-link { color: var(--gold); }
+    .track-cta-link:hover { gap: 0.7rem; }
+    .track-cta-link svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* ── GRANTS FUNDERS ── */
+    .funders-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+    .funder-cell {
+      background: #fff;
+      padding: 1.5rem;
+    }
+    .funder-tier {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--jade);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .funder-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+    .funder-detail {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+    .funder-amount {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--jade);
+      margin-top: 0.5rem;
+      display: block;
+    }
+
+    /* ── TEAM PHOTO UPDATE ── */
+    .team-avatar-photo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      flex-shrink: 0;
+      border: 2px solid var(--border);
+    }
+    .team-photo-credit {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.06em;
+      color: var(--ink-soft);
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      grid-column: 1 / -1;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .portfolio-grid { grid-template-columns: 1fr; }
@@ -836,6 +1017,11 @@
       .fact-divider { display: none; }
       .projects-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
+      .tracks-grid { grid-template-columns: 1fr; }
+      .funders-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .funders-grid { grid-template-columns: 1fr; }
     }
   </style>
   <!-- Universal components: nav + footer -->
@@ -848,19 +1034,20 @@
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-photo" role="img" aria-label="Robert Luu and Kaitlyn Huynh with ACHDO President at Seattle affordable housing convening, October 2025"></div>
   <div class="hero-inner">
     <div class="hero-eyebrow">Corporate Partners &amp; CRA</div>
     <h1>Build something lasting.<br /><em>With people who know how.</em></h1>
     <p class="hero-sub">
-      Jabooda Cares is a CHDO-designated, WMBE-certified nonprofit developing permanently affordable housing for AANHPI and low-income families in King County. We qualify for CRA community development credit and are actively seeking capacity grants, project investments, and long-term bank partners.
+      Jabooda Cares is an AANHPI-led, CHDO-designated 501(c)(3) developing permanently affordable housing for families in King County. We qualify for CRA community development credit and are actively seeking capacity grants, project investments, and long-term bank partners.
     </p>
     <div class="hero-certs">
       <span class="cert-badge"><span class="dot"></span>501(c)(3) Nonprofit</span>
       <span class="cert-badge"><span class="dot"></span>CHDO Designated</span>
-      <span class="cert-badge"><span class="dot"></span>WMBE Certified</span>
       <span class="cert-badge"><span class="dot"></span>EIN 99-4589825</span>
       <span class="cert-badge"><span class="dot"></span>King County, WA</span>
     </div>
+    <p class="hero-photo-credit">Robert Luu and Kaitlyn Huynh with ACHDO President at Seattle affordable housing convening, October 2025</p>
   </div>
 </section>
 
@@ -875,11 +1062,89 @@
     <div>
       <div class="cra-label">CRA Eligibility Statement</div>
       <p class="cra-text">
-        Jabooda Cares qualifies for <strong>CRA consideration under the Community Development Investment category</strong>. We are a CHDO-designated 501(c)(3) developing affordable housing at 30% AMI in LMI census tracts within King County, Washington. Grants, equity investments, and construction financing through Jabooda Cares generate <strong>CRA credit for regulated financial institutions</strong> under 12 CFR 25.23(a). Our affiliated general contractor, Jabooda Construction (WMBE-certified), allows us to capture construction margin that makes 30% AMI projects financially viable without additional subsidy.
+        Jabooda Cares qualifies for <strong>CRA consideration under the Community Development Investment category</strong>. We are a CHDO-designated 501(c)(3) developing affordable housing in LMI census tracts within King County, Washington. Grants, equity investments, and construction financing through Jabooda Cares generate <strong>CRA credit for regulated financial institutions</strong> under 12 CFR 25.23(a). Our affiliated general contractor, Jabooda Construction, holds OMWBE state WMBE certification, enabling the Jabooda team to deliver on both the community mission and the construction capacity needed to reach lower AMI levels.
       </p>
     </div>
   </div>
 </div>
+
+<!-- PARTNERSHIP TRACKS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">How to Partner</span>
+      <h2 class="section-title">Two ways to work with us</h2>
+      <p class="section-sub">Choose the track that fits your institution. Both generate CRA community development credit under 12 CFR 25.23(a).</p>
+    </div>
+    <div class="tracks-grid">
+
+      <!-- Track 1: Community Grants -->
+      <div class="track-card">
+        <div class="track-num">Track 01</div>
+        <div class="track-title">Community &amp; Capacity Grants</div>
+        <div class="track-range">$25K – $150K &nbsp;·&nbsp; Org-level &nbsp;·&nbsp; No project attachment</div>
+        <p class="track-desc">
+          Grants to Jabooda Cares as an organization. Funds predevelopment costs, staffing, technical assistance, and community engagement. No project underwriting required. The most accessible entry point for bank foundations, community foundations, and CRA-motivated giving programs.
+        </p>
+        <div class="track-meta">
+          <div class="track-meta-row">
+            <span class="track-meta-key">Who approves</span>
+            <span class="track-meta-val">Bank foundation / Community Dev dept</span>
+          </div>
+          <div class="track-meta-row">
+            <span class="track-meta-key">CRA credit type</span>
+            <span class="track-meta-val">CD Investment or CD Services</span>
+          </div>
+          <div class="track-meta-row">
+            <span class="track-meta-key">Typical timeline</span>
+            <span class="track-meta-val">60 – 120 days</span>
+          </div>
+          <div class="track-meta-row">
+            <span class="track-meta-key">Right for</span>
+            <span class="track-meta-val">Bank foundations, community foundations, CDFIs</span>
+          </div>
+        </div>
+        <a href="#partner-cta" class="track-cta-link">
+          Request our capacity grant overview
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Track 2: Project Investment -->
+      <div class="track-card track-gold">
+        <div class="track-num">Track 02</div>
+        <div class="track-title">Project Investment &amp; Equity</div>
+        <div class="track-range">$250K – $2M+ &nbsp;·&nbsp; Deal-level &nbsp;·&nbsp; Henderson St or JP58</div>
+        <p class="track-desc">
+          LIHTC equity investment, FHLB AHP sponsorship, or predevelopment investment tied to a specific project. Deal-level underwriting required. Longer timeline but significantly higher CRA credit value. LIHTC nonprofit basis boost applies — your deal prices better with us than with a for-profit developer.
+        </p>
+        <div class="track-meta">
+          <div class="track-meta-row">
+            <span class="track-meta-key">Who approves</span>
+            <span class="track-meta-val">Credit committee + CRA officer</span>
+          </div>
+          <div class="track-meta-row">
+            <span class="track-meta-key">CRA credit type</span>
+            <span class="track-meta-val">CD Investment (LIHTC equity / AHP)</span>
+          </div>
+          <div class="track-meta-row">
+            <span class="track-meta-key">Typical timeline</span>
+            <span class="track-meta-val">6 – 12 months</span>
+          </div>
+          <div class="track-meta-row">
+            <span class="track-meta-key">Right for</span>
+            <span class="track-meta-val">LIHTC syndicators, equity investors, AHP member banks</span>
+          </div>
+        </div>
+        <a href="#partner-cta" class="track-cta-link">
+          Schedule a project investment call
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- ACTIVE PROJECTS -->
 <section class="section">
@@ -906,12 +1171,12 @@
         </div>
         <div class="project-body">
           <p class="project-desc">
-            Permanent affordable rental housing in South Park, one of Seattle's most economically distressed LMI neighborhoods. Targeting 30% AMI households. Seattle Office of Housing RFP finalist. WSHFC pre-application in process.
+            Permanent affordable rental housing in South Park, one of Seattle's most economically distressed LMI neighborhoods. Serving deeply affordable income levels. Seattle Office of Housing RFP finalist. WSHFC pre-application in process.
           </p>
           <div class="project-stats">
             <div class="stat-cell">
-              <span class="stat-val">30%</span>
-              <span class="stat-key">AMI Target</span>
+              <span class="stat-val">ELI</span>
+              <span class="stat-key">Income Target</span>
             </div>
             <div class="stat-cell">
               <span class="stat-val">LMI</span>
@@ -946,7 +1211,7 @@
         </div>
         <div class="project-body">
           <p class="project-desc">
-            58-unit ELI affordable housing development serving veterans and foster youth at 30% AMI. 6-story Type VA/IA construction. NHTF application submitted to Washington State Commerce. Acquisition and predevelopment underway.
+            58-unit ELI affordable housing development serving veterans and foster youth. 6-story Type VA/IA construction. NHTF application submitted to Washington State Commerce. Acquisition and predevelopment underway.
           </p>
           <div class="project-stats">
             <div class="stat-cell">
@@ -966,7 +1231,7 @@
             <span class="tag">NHTF Submitted</span>
             <span class="tag">Veterans + Foster Youth</span>
             <span class="tag gold">Construction Financing</span>
-            <span class="tag">ELI 30% AMI</span>
+            <span class="tag">ELI</span>
           </div>
         </div>
       </div>
@@ -1031,10 +1296,10 @@
         <div class="cert-issuer">Issuing Authority: HUD / WA Commerce</div>
       </div>
       <div class="cert-card">
-        <div class="cert-abbr">WMBE</div>
-        <div class="cert-full">Women &amp; Minority Business Enterprise</div>
-        <p class="cert-desc">State-certified WMBE status through the Washington State Office of Minority &amp; Women's Business Enterprises. Applies to both Jabooda Cares and affiliated Jabooda Construction, supporting supplier diversity and equity goals in public contracting.</p>
-        <div class="cert-issuer">Issuing Authority: WA OMWBE</div>
+        <div class="cert-abbr">GC</div>
+        <div class="cert-full">Affiliated General Contractor</div>
+        <p class="cert-desc">Jabooda Construction, our affiliated general contractor, holds OMWBE state WMBE certification. This enables the Jabooda team to deliver on both the community mission and the construction capacity needed to reach lower AMI levels. Jabooda Construction is a separate entity from Jabooda Cares.</p>
+        <div class="cert-issuer">Jabooda Construction — WA OMWBE Certified</div>
       </div>
       <div class="cert-card">
         <div class="cert-abbr">501(c)(3)</div>
@@ -1087,7 +1352,7 @@
           </svg>
         </div>
         <div class="step-title">Due Diligence Package</div>
-        <p class="step-desc">We provide a complete CRA documentation package: 501(c)(3) determination letter, CHDO designation, WMBE certification, audited financials, project pro formas, census tract confirmation, and board-approved conflict of interest policy.</p>
+        <p class="step-desc">We provide a complete CRA documentation package: 501(c)(3) determination letter, CHDO designation, Jabooda Construction WMBE certification, audited financials, project pro formas, census tract confirmation, and board-approved conflict of interest policy.</p>
         <div class="step-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -1126,8 +1391,8 @@
     </div>
     <div class="fact-divider"></div>
     <div>
-      <span class="fact-val">30%</span>
-      <span class="fact-key">AMI Target</span>
+      <span class="fact-val">ELI</span>
+      <span class="fact-key">Income Levels Served</span>
     </div>
     <div class="fact-divider"></div>
     <div>
@@ -1151,35 +1416,28 @@
     </div>
     <div class="team-grid">
       <div class="team-card">
-        <div class="team-avatar">RL</div>
+        <img src="/images/robert-portrait.jpg" alt="Robert Luu, Executive Co-Director, Jabooda Cares" class="team-avatar-photo" width="64" height="64" loading="lazy" />
         <div>
           <div class="team-name">Robert Luu</div>
           <div class="team-title">Executive Co-Director</div>
           <p class="team-bio">Leads development strategy, capital stack structuring, and funder relationships for Jabooda Cares. Deep expertise in LIHTC, NHTF, HOME, and public-private affordable housing finance in the Pacific Northwest.</p>
-          <a href="mailto:robert@jabooda.com" class="team-contact">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            robert@jabooda.com
-          </a>
         </div>
       </div>
       <div class="team-card">
-        <div class="team-avatar">KH</div>
+        <img src="/images/kaitlyn-portrait.jpg" alt="Kaitlyn Huynh, Board President and COO, Jabooda Cares" class="team-avatar-photo" width="64" height="64" loading="lazy" />
         <div>
           <div class="team-name">Kaitlyn Huynh</div>
           <div class="team-title">Board President / COO</div>
           <p class="team-bio">Board President and operational lead bridging Jabooda Cares' nonprofit mission with execution capacity. Oversees organizational development, compliance, and community relationships across the Jabooda portfolio.</p>
-          <a href="mailto:kaitlyn@jabooda.com" class="team-contact">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            kaitlyn@jabooda.com
-          </a>
         </div>
       </div>
     </div>
+    <p class="team-photo-credit">Photo: Robert Luu and Kaitlyn Huynh with ACHDO President at Seattle affordable housing convening, October 2025</p>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="cta-section">
+<section class="cta-section" id="partner-cta">
   <div class="cta-inner">
     <span class="cta-label">Start a Conversation</span>
     <h2 class="cta-title">Ready to put your CRA dollars to work?</h2>
@@ -1191,14 +1449,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         Schedule a 20-Minute Call
       </a>
-      <a href="mailto:robert@jabooda.com?subject=Partnership%20Inquiry%20-%20Jabooda%20Cares" class="btn-secondary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Email Our Team
-      </a>
     </div>
-    <p class="cta-contact-line">
-      Or call Robert directly at <a href="tel:+12063959808">206-395-9808</a> &nbsp;|&nbsp; <a href="mailto:robert@jabooda.com">robert@jabooda.com</a>
-    </p>
   </div>
 </section>
 

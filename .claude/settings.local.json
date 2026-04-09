@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(export SHELL=/usr/bin/bash)"
+    ]
+  }
+}

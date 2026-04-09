@@ -1,145 +1,1207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Partners — Jabooda Cares</title>
-  <meta name="description" content="Partner with Jabooda Cares to advance affordable homeownership for AANHPI families in Seattle's Rainier Valley.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corporate Partners & CRA | Jabooda Cares</title>
+  <meta name="description" content="Jabooda Cares is a CHDO-designated 501(c)(3) developing affordable housing at 30% AMI in LMI census tracts in King County. CRA-qualifying community development partnerships." />
+  <link rel="canonical" href="https://jaboodacares.org/partners" />
 
-  <!-- shared components -->
-  <script src="/components/nav.js" defer></script>
-  <script src="/components/footer.js" defer></script>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Corporate Partners & CRA | Jabooda Cares" />
+  <meta property="og:description" content="CHDO-designated, WMBE-certified affordable housing developer in Seattle. CRA-qualifying projects in King County LMI census tracts." />
+  <meta property="og:url" content="https://jaboodacares.org/partners" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://jaboodacares.org/images/og-partners.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Schema: NGO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    "name": "Jabooda Cares",
+    "legalName": "Jabooda Cares",
+    "description": "AANHPI-led nonprofit developing affordable housing for families in King County, Washington.",
+    "url": "https://jaboodacares.org",
+    "telephone": "206-395-9808",
+    "email": "robert@jabooda.com",
+    "taxID": "99-4589825",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2101 S Grand St",
+      "addressLocality": "Seattle",
+      "addressRegion": "WA",
+      "postalCode": "98144",
+      "addressCountry": "US"
+    },
+    "founder": { "@type": "Person", "name": "Robert Luu" },
+    "knowsAbout": ["Affordable Housing", "LIHTC", "CHDO", "NHTF", "Community Development"]
+  }
+  </script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #1A1A1A;
+      --ink-mid:    #4A4A4A;
+      --ink-soft:   #7A7A7A;
+      --ground:     #FAFAF7;
+      --ground-2:   #F2F0EB;
+      --ground-3:   #E8E4DC;
+      --jade:       #1B5E42;
+      --jade-mid:   #2E7D5A;
+      --jade-light: #EAF3EE;
+      --gold:       #C8922A;
+      --gold-light: #FBF3E4;
+      --border:     #DDD9D0;
+      --radius:     8px;
+      --radius-lg:  16px;
+      --mono:       'DM Mono', monospace;
+      --serif:      'Instrument Serif', serif;
+      --sans:       'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #0A1210;
-      color: rgba(255,255,255,.85);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      font-family: var(--sans);
+      background: var(--ground);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
-    .partners-hero {
-      max-width: 1200px;
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 250, 247, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+    .nav-inner {
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 5rem 1.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
     }
-    .partners-hero h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 700;
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--jade);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-logo-mark svg { width: 20px; height: 20px; }
+    .nav-logo-text {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--ink-mid);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--jade); }
+    .nav-links a.active { color: var(--jade); font-weight: 600; }
+    .nav-cta {
+      background: var(--jade);
+      color: #fff !important;
+      padding: 0.5rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 500 !important;
+    }
+    .nav-cta:hover { background: var(--jade-mid); color: #fff !important; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--jade);
       color: #fff;
-      margin-bottom: 1rem;
+      padding: 5rem 2rem 4.5rem;
+      position: relative;
+      overflow: hidden;
     }
-    .partners-hero .lead {
-      font-size: 1.125rem;
-      color: rgba(255,255,255,.6);
-      max-width: 640px;
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(255,255,255,0.04) 0%, transparent 70%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 1.25rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: rgba(255,255,255,0.4);
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      max-width: 720px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: rgba(255,255,255,0.75);
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 580px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+    .hero-certs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .cert-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 100px;
+      padding: 0.35rem 0.9rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.9);
+    }
+    .cert-badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #6EE7B7;
+      flex-shrink: 0;
+    }
+
+    /* ── CRA STATEMENT ── */
+    .cra-section {
+      background: var(--jade-light);
+      border-bottom: 1px solid #C9E2D5;
+      padding: 2.25rem 2rem;
+    }
+    .cra-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+    .cra-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--jade);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .cra-icon svg { width: 22px; height: 22px; color: #fff; }
+    .cra-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--jade);
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+    .cra-text {
+      font-size: 0.95rem;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      max-width: 860px;
+    }
+    .cra-text strong { color: var(--jade); font-weight: 600; }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      padding: 5rem 2rem;
+    }
+    .section-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .section-alt { background: var(--ground-2); }
+
+    .section-header {
+      margin-bottom: 3rem;
+    }
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--jade);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.75rem, 3vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      max-width: 540px;
+    }
+    .section-sub {
+      font-size: 0.975rem;
+      color: var(--ink-soft);
+      margin-top: 0.75rem;
+      max-width: 560px;
       line-height: 1.7;
     }
-    .tiers {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .project-card:hover {
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .project-header {
+      background: var(--jade);
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .project-header-left {}
+    .project-status {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #6EE7B7;
+      margin-bottom: 0.35rem;
+    }
+    .project-name {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: #fff;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+    .project-location {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.65);
+      margin-top: 0.25rem;
+    }
+    .project-units-badge {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 8px;
+      padding: 0.5rem 0.85rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .project-units-num {
+      font-family: var(--serif);
+      font-size: 1.75rem;
+      color: #fff;
+      line-height: 1;
+      display: block;
+    }
+    .project-units-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.65);
+      text-transform: uppercase;
+      display: block;
+      margin-top: 0.2rem;
+    }
+    .project-body {
+      padding: 1.5rem 1.75rem;
+    }
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+    .project-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+    }
+    .stat-cell {
+      background: var(--ground);
+      padding: 0.85rem 1rem;
+    }
+    .stat-val {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--ink);
+      line-height: 1;
+      display: block;
+    }
+    .stat-key {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      display: block;
+      margin-top: 0.2rem;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: var(--jade-light);
+      color: var(--jade);
+      border: 1px solid #C9E2D5;
+      border-radius: 100px;
+      padding: 0.2rem 0.65rem;
+    }
+    .tag.gold {
+      background: var(--gold-light);
+      color: var(--gold);
+      border-color: #EDD9B0;
+    }
+
+    /* ── PORTFOLIO ── */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .portfolio-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+    .portfolio-name {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+    .portfolio-loc {
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+      margin-bottom: 1rem;
+    }
+    .portfolio-divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 1rem;
+    }
+    .portfolio-stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .portfolio-stat:last-child { margin-bottom: 0; }
+    .p-key {
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+    }
+    .p-val {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* ── CERTIFICATIONS ── */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+    .cert-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      position: relative;
+    }
+    .cert-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 1.75rem;
+      right: 1.75rem;
+      height: 3px;
+      background: var(--jade);
+      border-radius: 0 0 3px 3px;
+    }
+    .cert-abbr {
+      font-family: var(--serif);
+      font-size: 1.75rem;
+      color: var(--jade);
+      margin-bottom: 0.25rem;
+      line-height: 1;
+    }
+    .cert-full {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .cert-desc {
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+    .cert-issuer {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--jade);
+      margin-top: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #fff;
+    }
+    .how-step {
+      padding: 2rem;
+      position: relative;
+    }
+    .how-step:not(:last-child) {
+      border-right: 1px solid var(--border);
+    }
+    .step-num {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 1rem;
+    }
+    .step-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--jade-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .step-icon svg { width: 22px; height: 22px; color: var(--jade); }
+    .step-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+    }
+    .step-desc {
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+    .step-arrow {
+      position: absolute;
+      right: -14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      background: var(--jade);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+    .step-arrow svg { width: 12px; height: 12px; color: #fff; }
+
+    /* ── TEAM ── */
+    .team-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
     }
-    .tier-card {
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 12px;
+    .team-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
       padding: 2rem;
-      transition: border-color .2s;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
     }
-    .tier-card:hover { border-color: rgba(255,255,255,.15); }
-    .tier-label {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.7rem;
+    .team-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--ground-3);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: var(--jade);
+    }
+    .team-name {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--ink);
+      font-weight: 400;
+      margin-bottom: 0.15rem;
+    }
+    .team-title {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      letter-spacing: .12em;
-      color: rgba(255,255,255,.35);
-      margin-bottom: 0.75rem;
+      color: var(--jade);
+      margin-bottom: 0.65rem;
     }
-    .tier-card h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.5rem;
-      color: #fff;
-      margin-bottom: 0.75rem;
+    .team-bio {
+      font-size: 0.85rem;
+      color: var(--ink-mid);
+      line-height: 1.65;
     }
-    .tier-card p {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,.55);
-      line-height: 1.7;
+    .team-contact {
+      font-size: 0.8rem;
+      color: var(--jade);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.75rem;
+      font-weight: 500;
     }
-    .partner-cta {
-      max-width: 1200px;
+    .team-contact:hover { color: var(--jade-mid); }
+
+    /* ── ORG FACTS ── */
+    .facts-strip {
+      background: var(--ink);
+      padding: 2.5rem 2rem;
+    }
+    .facts-inner {
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 2rem 1.5rem 5rem;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
       text-align: center;
     }
-    .partner-cta a {
-      display: inline-block;
-      background: #B5672E;
+    .fact-val {
+      font-family: var(--serif);
+      font-size: 1.75rem;
       color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.9rem 2rem;
-      border-radius: 8px;
-      transition: background .15s;
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.35rem;
     }
-    .partner-cta a:hover { background: #8B4A1C; }
+    .fact-key {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+    .fact-divider {
+      width: 1px;
+      background: rgba(255,255,255,0.1);
+      align-self: stretch;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--jade);
+      padding: 5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .cta-inner {
+      position: relative;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .cta-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .cta-title {
+      font-family: var(--serif);
+      font-size: clamp(1.85rem, 4vw, 2.75rem);
+      color: #fff;
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .cta-sub {
+      font-size: 0.975rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #fff;
+      color: var(--jade);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.93; transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.3);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.08); }
+    .cta-contact-line {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .cta-contact-line a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .cta-contact-line a:hover { color: #fff; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111;
+      padding: 3rem 2rem;
+      color: rgba(255,255,255,0.45);
+    }
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .footer-left {}
+    .footer-org {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.4rem;
+    }
+    .footer-details {
+      font-size: 0.8rem;
+      line-height: 1.8;
+    }
+    .footer-details a { color: inherit; text-decoration: none; }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.75); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: 1fr; }
+      .how-step:not(:last-child) { border-right: none; border-bottom: 1px solid var(--border); }
+      .step-arrow { display: none; }
+      .facts-inner { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+      .fact-divider { display: none; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
   </style>
+  <!-- Universal components: nav + footer -->
+  <!-- Edit /components/nav.js or /components/footer.js to update across all pages -->
+  <script src="/components/nav.js" defer></script>
+  <script src="/components/footer.js" defer></script>
 </head>
 <body>
-  <section class="partners-hero">
-    <h1>Partner With Us</h1>
-    <p class="lead">
-      Jabooda Cares is building a pathway to homeownership for AANHPI families
-      in Seattle's Rainier Valley. We partner with lenders, employers, community
-      organizations, and government agencies to close the racial homeownership gap.
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Corporate Partners &amp; CRA</div>
+    <h1>Build something lasting.<br /><em>With people who know how.</em></h1>
+    <p class="hero-sub">
+      Jabooda Cares is a CHDO-designated, WMBE-certified nonprofit developing permanently affordable housing for AANHPI and low-income families in King County. We qualify for CRA community development credit and are actively seeking capacity grants, project investments, and long-term bank partners.
     </p>
-  </section>
+    <div class="hero-certs">
+      <span class="cert-badge"><span class="dot"></span>501(c)(3) Nonprofit</span>
+      <span class="cert-badge"><span class="dot"></span>CHDO Designated</span>
+      <span class="cert-badge"><span class="dot"></span>WMBE Certified</span>
+      <span class="cert-badge"><span class="dot"></span>EIN 99-4589825</span>
+      <span class="cert-badge"><span class="dot"></span>King County, WA</span>
+    </div>
+  </div>
+</section>
 
-  <section class="tiers">
-    <div class="tier-card">
-      <div class="tier-label">Government</div>
-      <h2>Public Sector</h2>
-      <p>
-        City of Seattle Office of Housing, Sound Transit, King County DCHS,
-        and Washington State Commerce fund the programs that make below-market
-        homeownership possible.
+<!-- CRA ELIGIBILITY STATEMENT -->
+<div class="cra-section">
+  <div class="cra-inner">
+    <div class="cra-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+    </div>
+    <div>
+      <div class="cra-label">CRA Eligibility Statement</div>
+      <p class="cra-text">
+        Jabooda Cares qualifies for <strong>CRA consideration under the Community Development Investment category</strong>. We are a CHDO-designated 501(c)(3) developing affordable housing at 30% AMI in LMI census tracts within King County, Washington. Grants, equity investments, and construction financing through Jabooda Cares generate <strong>CRA credit for regulated financial institutions</strong> under 12 CFR 25.23(a). Our affiliated general contractor, Jabooda Construction (WMBE-certified), allows us to capture construction margin that makes 30% AMI projects financially viable without additional subsidy.
       </p>
     </div>
-    <div class="tier-card">
-      <div class="tier-label">Financial</div>
-      <h2>Lending Partners</h2>
-      <p>
-        CDFI lenders and community banks provide down payment assistance,
-        shared equity financing, and culturally responsive mortgage products
-        for first-generation homebuyers.
-      </p>
-    </div>
-    <div class="tier-card">
-      <div class="tier-label">Community</div>
-      <h2>Community Organizations</h2>
-      <p>
-        AANHPI-serving nonprofits, culturally specific housing counselors,
-        and neighborhood organizations connect families to homeownership
-        readiness programs.
-      </p>
-    </div>
-  </section>
+  </div>
+</div>
 
-  <section class="partner-cta">
-    <a href="mailto:robert@jabooda.com?subject=Partnership%20Inquiry">Become a Partner</a>
-  </section>
+<!-- ACTIVE PROJECTS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Active Development Pipeline</span>
+      <h2 class="section-title">Projects open for partnership</h2>
+      <p class="section-sub">Both projects are in active predevelopment. CRA capacity grants and equity letters of interest are welcome at this stage.</p>
+    </div>
+    <div class="projects-grid">
+
+      <!-- Henderson Street -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-header-left">
+            <div class="project-status">● Active — Seattle Office of Housing RFP Finalist</div>
+            <div class="project-name">Henderson Street</div>
+            <div class="project-location">South Park, Seattle, WA — District 1</div>
+          </div>
+          <div class="project-units-badge">
+            <span class="project-units-num">70–120</span>
+            <span class="project-units-label">Units</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">
+            Permanent affordable rental housing in South Park, one of Seattle's most economically distressed LMI neighborhoods. Targeting 30% AMI households. Seattle Office of Housing RFP finalist. WSHFC pre-application in process.
+          </p>
+          <div class="project-stats">
+            <div class="stat-cell">
+              <span class="stat-val">30%</span>
+              <span class="stat-key">AMI Target</span>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-val">LMI</span>
+              <span class="stat-key">Census Tract</span>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-val">9%</span>
+              <span class="stat-key">LIHTC Path</span>
+            </div>
+          </div>
+          <div class="project-tags">
+            <span class="tag">SOH RFP Finalist</span>
+            <span class="tag">WSHFC Pre-App</span>
+            <span class="tag gold">Syndicator Outreach Active</span>
+            <span class="tag">South Park</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Judkins Park 58 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-header-left">
+            <div class="project-status">● Submitted — NHTF NOFA MHU-2026-01</div>
+            <div class="project-name">Judkins Park 58</div>
+            <div class="project-location">2007 S State St, Seattle, WA 98144</div>
+          </div>
+          <div class="project-units-badge">
+            <span class="project-units-num">58</span>
+            <span class="project-units-label">Units</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">
+            58-unit ELI affordable housing development serving veterans and foster youth at 30% AMI. 6-story Type VA/IA construction. NHTF application submitted to Washington State Commerce. Acquisition and predevelopment underway.
+          </p>
+          <div class="project-stats">
+            <div class="stat-cell">
+              <span class="stat-val">$22.9M</span>
+              <span class="stat-key">Total Dev Cost</span>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-val">$2.58M</span>
+              <span class="stat-key">NHTF Ask</span>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-val">$4M</span>
+              <span class="stat-key">Acquisition</span>
+            </div>
+          </div>
+          <div class="project-tags">
+            <span class="tag">NHTF Submitted</span>
+            <span class="tag">Veterans + Foster Youth</span>
+            <span class="tag gold">Construction Financing</span>
+            <span class="tag">ELI 30% AMI</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO TRACK RECORD -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Completed Portfolio</span>
+      <h2 class="section-title">400+ units delivered across Seattle and Tacoma</h2>
+      <p class="section-sub">Jabooda Cares and its affiliated entities have completed three major affordable and mixed-income developments in the region.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="portfolio-name">Melody Apartments</div>
+        <div class="portfolio-loc">North Beacon Hill / Atlantic, Seattle</div>
+        <div class="portfolio-divider"></div>
+        <div class="portfolio-stat"><span class="p-key">Units</span><span class="p-val">179</span></div>
+        <div class="portfolio-stat"><span class="p-key">Square Feet</span><span class="p-val">179,000 sf</span></div>
+        <div class="portfolio-stat"><span class="p-key">Total Cost</span><span class="p-val">$50M</span></div>
+        <div class="portfolio-stat"><span class="p-key">Role</span><span class="p-val">GC + Developer</span></div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-name">Symphony Apartments</div>
+        <div class="portfolio-loc">Columbia City, Seattle</div>
+        <div class="portfolio-divider"></div>
+        <div class="portfolio-stat"><span class="p-key">Square Feet</span><span class="p-val">129,000 sf</span></div>
+        <div class="portfolio-stat"><span class="p-key">Address</span><span class="p-val">4221 37th Ave S</span></div>
+        <div class="portfolio-stat"><span class="p-key">Total Cost</span><span class="p-val">$18M</span></div>
+        <div class="portfolio-stat"><span class="p-key">Role</span><span class="p-val">GC + Developer</span></div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-name">Apollo Heights</div>
+        <div class="portfolio-loc">Lincoln District, Tacoma</div>
+        <div class="portfolio-divider"></div>
+        <div class="portfolio-stat"><span class="p-key">Units</span><span class="p-val">130</span></div>
+        <div class="portfolio-stat"><span class="p-key">Total Cost</span><span class="p-val">$36M</span></div>
+        <div class="portfolio-stat"><span class="p-key">Market</span><span class="p-val">Pierce County</span></div>
+        <div class="portfolio-stat"><span class="p-key">Role</span><span class="p-val">GC + Developer</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Certifications &amp; Designations</span>
+      <h2 class="section-title">Institutional credibility, documented</h2>
+      <p class="section-sub">Our certifications are verifiable through the issuing agencies. Compliance documentation available upon request.</p>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-abbr">CHDO</div>
+        <div class="cert-full">Community Housing Development Organization</div>
+        <p class="cert-desc">HUD-designated CHDO status enables Jabooda Cares to receive HOME Investment Partnership funds and NHTF allocations. Designates us as a mission-driven affordable housing developer with the capacity to develop, own, and manage housing.</p>
+        <div class="cert-issuer">Issuing Authority: HUD / WA Commerce</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-abbr">WMBE</div>
+        <div class="cert-full">Women &amp; Minority Business Enterprise</div>
+        <p class="cert-desc">State-certified WMBE status through the Washington State Office of Minority &amp; Women's Business Enterprises. Applies to both Jabooda Cares and affiliated Jabooda Construction, supporting supplier diversity and equity goals in public contracting.</p>
+        <div class="cert-issuer">Issuing Authority: WA OMWBE</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-abbr">501(c)(3)</div>
+        <div class="cert-full">Tax-Exempt Public Charity</div>
+        <p class="cert-desc">IRS-recognized public charity. Contributions to Jabooda Cares are tax-deductible to the full extent permitted by law. Corporate grants and CRA investments qualify for charitable deduction treatment where applicable.</p>
+        <div class="cert-issuer">EIN: 99-4589825</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-abbr">AANHPI</div>
+        <div class="cert-full">By-and-For AANHPI Organization</div>
+        <p class="cert-desc">Washington State Commerce By-and-For assessment completed. Jabooda Cares is led by and primarily serves Asian American, Native Hawaiian, and Pacific Islander communities in King County, addressing culturally specific displacement and housing insecurity.</p>
+        <div class="cert-issuer">Issuing Authority: WA Commerce</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Partnership Process</span>
+      <h2 class="section-title">Three steps to a partnership</h2>
+      <p class="section-sub">We keep this straightforward. Most CRA conversations move from introduction to letter of intent in under 30 days.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="step-num">Step 01</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <div class="step-title">20-Minute Introduction</div>
+        <p class="step-desc">Schedule a call with our development team. We'll share our current project pipeline, CRA documentation package, and discuss where your institution's community development priorities align with our work.</p>
+        <div class="step-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">Step 02</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </div>
+        <div class="step-title">Due Diligence Package</div>
+        <p class="step-desc">We provide a complete CRA documentation package: 501(c)(3) determination letter, CHDO designation, WMBE certification, audited financials, project pro formas, census tract confirmation, and board-approved conflict of interest policy.</p>
+        <div class="step-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">Step 03</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 12 20 22 4 22 4 12"/>
+            <rect x="2" y="7" width="20" height="5"/>
+            <line x1="12" y1="22" x2="12" y2="7"/>
+            <path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/>
+            <path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/>
+          </svg>
+        </div>
+        <div class="step-title">Grant or Investment</div>
+        <p class="step-desc">Capacity grants ($25K–$150K), project-specific grants, equity investments in LIHTC deals, or construction financing. We work with your CRA officer to structure the relationship for maximum credit value and mission impact. FHLB AHP sponsorship available through member banks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORG FACTS STRIP -->
+<div class="facts-strip">
+  <div class="facts-inner">
+    <div>
+      <span class="fact-val">400+</span>
+      <span class="fact-key">Units Developed</span>
+    </div>
+    <div class="fact-divider"></div>
+    <div>
+      <span class="fact-val">$104M</span>
+      <span class="fact-key">Portfolio Value</span>
+    </div>
+    <div class="fact-divider"></div>
+    <div>
+      <span class="fact-val">30%</span>
+      <span class="fact-key">AMI Target</span>
+    </div>
+    <div class="fact-divider"></div>
+    <div>
+      <span class="fact-val">LMI</span>
+      <span class="fact-key">King County Tracts</span>
+    </div>
+    <div class="fact-divider"></div>
+    <div>
+      <span class="fact-val">CHDO</span>
+      <span class="fact-key">HUD Designated</span>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Development Team</span>
+      <h2 class="section-title">Who you'll work with</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">RL</div>
+        <div>
+          <div class="team-name">Robert Luu</div>
+          <div class="team-title">Executive Co-Director</div>
+          <p class="team-bio">Leads development strategy, capital stack structuring, and funder relationships for Jabooda Cares. Deep expertise in LIHTC, NHTF, HOME, and public-private affordable housing finance in the Pacific Northwest.</p>
+          <a href="mailto:robert@jabooda.com" class="team-contact">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            robert@jabooda.com
+          </a>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">KH</div>
+        <div>
+          <div class="team-name">Kaitlyn Huynh</div>
+          <div class="team-title">Board President / COO</div>
+          <p class="team-bio">Board President and operational lead bridging Jabooda Cares' nonprofit mission with execution capacity. Oversees organizational development, compliance, and community relationships across the Jabooda portfolio.</p>
+          <a href="mailto:kaitlyn@jabooda.com" class="team-contact">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            kaitlyn@jabooda.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <span class="cta-label">Start a Conversation</span>
+    <h2 class="cta-title">Ready to put your CRA dollars to work?</h2>
+    <p class="cta-sub">
+      Schedule a 20-minute call with our development team. We'll walk you through our active pipeline, CRA documentation, and discuss how your institution's community development priorities align with our work in King County.
+    </p>
+    <div class="cta-buttons">
+      <a href="https://calendly.com/robert-jabooda/partners" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Schedule a 20-Minute Call
+      </a>
+      <a href="mailto:robert@jabooda.com?subject=Partnership%20Inquiry%20-%20Jabooda%20Cares" class="btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email Our Team
+      </a>
+    </div>
+    <p class="cta-contact-line">
+      Or call Robert directly at <a href="tel:+12063959808">206-395-9808</a> &nbsp;|&nbsp; <a href="mailto:robert@jabooda.com">robert@jabooda.com</a>
+    </p>
+  </div>
+</section>
+
+
 </body>
 </html>

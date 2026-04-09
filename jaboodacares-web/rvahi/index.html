@@ -572,13 +572,13 @@ footer p{font-size:.75rem;color:rgba(255,255,255,.25);font-family:'Noto Sans',mo
           <span>Max income<br>(80% AMI)</span>
           <span>Max income<br>(60% AMI)</span>
         </div>
-        <div class="ami-row"><span>1 person</span><span>$77,000</span><span>$57,750</span></div>
-        <div class="ami-row"><span>2 people</span><span>$88,000</span><span>$66,000</span></div>
-        <div class="ami-row"><span>3 people</span><span>$99,000</span><span>$74,250</span></div>
-        <div class="ami-row ami-hl"><span class="ami-hl ct-label">4 people</span><span>$110,000</span><span>$82,500</span></div>
-        <div class="ami-row"><span>5 people</span><span>$118,800</span><span>$89,100</span></div>
-        <div class="ami-row"><span>6 people</span><span>$127,600</span><span>$95,700</span></div>
-        <div class="ami-note">2024 King County AMI figures. Based on combined gross household income before taxes.</div>
+        <div class="ami-row"><span>1 person</span><span>$88,000</span><span>$66,000</span></div>
+        <div class="ami-row"><span>2 people</span><span>$100,560</span><span>$75,420</span></div>
+        <div class="ami-row"><span>3 people</span><span>$113,120</span><span>$84,840</span></div>
+        <div class="ami-row ami-hl"><span class="ami-hl ct-label">4 people</span><span>$125,680</span><span>$94,260</span></div>
+        <div class="ami-row"><span>5 people</span><span>$135,760</span><span>$101,820</span></div>
+        <div class="ami-row"><span>6 people</span><span>$145,840</span><span>$109,380</span></div>
+        <div class="ami-note">2025 Seattle Office of Housing income limits (effective Nov 14, 2025). Based on combined gross household income before taxes.</div>
       </div>
     </div>
 
@@ -1230,7 +1230,7 @@ function showTab(idx){
 }
 
 /* ── Eligibility checker ── */
-const AMI_LIMITS = {1:77000,2:88000,3:99000,4:110000,5:118800,6:127600};
+const AMI_LIMITS = {1:88000,2:100560,3:113120,4:125680,5:135760,6:145840};
 // Low end of each range — gives benefit of the doubt to the applicant
 const INCOME_LOW = {'0-60k':0,'60-80k':60000,'80-100k':80000,'100-120k':100000,'120k+':120000};
 

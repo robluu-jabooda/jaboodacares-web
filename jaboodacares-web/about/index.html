@@ -225,6 +225,24 @@ body {
   border-color: rgba(255,255,255,.12);
   color: rgba(255,255,255,.3);
 }
+.photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--r);
+  display: block;
+}
+.hero-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--r2);
+  display: block;
+  min-height: 420px;
+}
+.photo-grid-2x2 img {
+  min-height: 180px;
+}
 
 /* ── STAT CARDS ── */
 .stat-grid {
@@ -638,10 +656,7 @@ body {
         <span class="hero-tag hero-tag--active">Pierce County</span>
       </div>
     </div>
-    <div class="hero-photo-placeholder rise rise-d2">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-      Hero photo: community or building
-    </div>
+    <img src="/images/hero-about.png" alt="Jabooda Cares community" class="hero-photo-img rise rise-d2">
   </div>
 </section>
 
@@ -679,10 +694,7 @@ body {
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
         Multigenerational family
       </div>
-      <div class="photo-placeholder">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-        Building or construction
-      </div>
+      <img src="/images/building-construction.png" alt="Building construction" class="photo-img" style="min-height:220px;">
     </div>
   </div>
 </section>
@@ -827,22 +839,10 @@ body {
         <p>In 2025, Jabooda Cares laid the groundwork, engaging city councilmembers, meeting with mission-aligned lenders including Amazon Housing Equity Fund and Ballmer Group, and building relationships with nonprofit partners, community leaders, and housing advocates across the region.</p>
       </div>
       <div class="photo-grid-2x2">
-        <div class="photo-placeholder">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-          Kaitlyn Huynh
-        </div>
-        <div class="photo-placeholder">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-          Robert Luu
-        </div>
-        <div class="photo-placeholder">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-          Melody Apartments
-        </div>
-        <div class="photo-placeholder">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-          Apollo Heights Tacoma
-        </div>
+        <img src="/images/kaitlyn-huynh.png" alt="Kaitlyn Huynh" class="photo-img">
+        <img src="/images/robert-luu.JPG" alt="Robert Luu" class="photo-img">
+        <img src="/images/melody-apartments.jpg" alt="Melody Apartments" class="photo-img">
+        <img src="/images/apollo-heights.png" alt="Apollo Heights Tacoma" class="photo-img">
       </div>
     </div>
   </div>
@@ -872,10 +872,7 @@ body {
       <div class="col-copy">
         <p>Melody Apartments, Symphony Apartments, and Apollo Heights represent over $104M in completed development across Seattle and Tacoma, serving working families and seniors at affordable rent levels.</p>
       </div>
-      <div class="photo-placeholder" style="min-height:240px;">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-        Building exterior
-      </div>
+      <img src="/images/building-construction.png" alt="Building exterior" class="photo-img" style="min-height:240px;">
     </div>
   </div>
 </section>

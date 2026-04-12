@@ -28,7 +28,7 @@
     {
       heading: 'Transparency',
       links: [
-        { label: 'Financials & 990', href: '/transparency' },
+        { label: 'Financials & Certifications', href: '/transparency' },
         { label: 'Privacy Policy',   href: '/privacy' },
         { label: 'Donor Privacy',    href: '/donor-privacy' },
       ],

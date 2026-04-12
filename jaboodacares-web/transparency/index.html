@@ -77,6 +77,17 @@ h3{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--ink);ma
 .gov-dot--current{background:#2D8F4E}
 .gov-dot--pending{background:var(--gold)}
 
+/* Board table */
+.board-table-wrap{overflow-x:auto;margin:2rem 0}
+.board-table{width:100%;border-collapse:collapse;font-size:.9rem}
+.board-table th{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:.75rem 1rem;border-bottom:2px solid var(--border)}
+.board-table td{padding:.85rem 1rem;border-bottom:1px solid var(--border);color:var(--ink-mid);font-weight:300}
+.board-table tr:last-child td{border-bottom:none}
+.board-table td:first-child{color:var(--ink);font-weight:500}
+.badge{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .6rem;border-radius:100px}
+.badge--yes{background:rgba(45,143,78,.1);color:#2D8F4E;border:1px solid rgba(45,143,78,.2)}
+.badge--no{background:rgba(139,74,28,.08);color:var(--cedar);border:1px solid rgba(139,74,28,.15)}
+
 /* Affiliated transactions */
 .affil{background:var(--forest);color:#fff;padding:4rem 2rem}
 .affil-inner{max-width:var(--max-w);margin:0 auto}
@@ -211,6 +222,77 @@ h3{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--ink);ma
         <div class="gov-status"><span class="gov-dot gov-dot--current"></span> Current</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- BOARD OF DIRECTORS -->
+<section class="section">
+  <div class="section-inner">
+    <span class="section-label">Board of Directors</span>
+    <h2>Leadership and Independence</h2>
+    <p class="prose">
+      Charity Navigator and federal funders require that a majority of the board
+      be independent of staff and affiliated entities. Our board meets this standard
+      with 80% independent directors. No board members receive compensation for
+      their board service.
+    </p>
+    <div class="board-table-wrap">
+      <table class="board-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Independent</th>
+            <th>Compensated for Board Service</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Kaitlyn Huynh</td>
+            <td>Board President</td>
+            <td><span class="badge badge--no">No</span></td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Robert Luu</td>
+            <td>Director</td>
+            <td><span class="badge badge--no">No</span></td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Teresa Le</td>
+            <td>Treasurer</td>
+            <td><span class="badge badge--yes">Yes</span></td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Kayla Lam</td>
+            <td>Secretary</td>
+            <td><span class="badge badge--yes">Yes</span></td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Viet Hoan (Lincoln) Nguyen</td>
+            <td>Member at Large</td>
+            <td><span class="badge badge--yes">Yes</span></td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Thinh Huynh</td>
+            <td>Member at Large</td>
+            <td><span class="badge badge--yes">Yes</span></td>
+            <td>No</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="prose" style="margin-top:1.25rem">
+      <strong>Independent majority: 4 of 6 directors (67%).</strong>
+      Kaitlyn Huynh serves as COO of Jabooda Construction, the affiliated general
+      contractor. Robert Luu serves as Executive Co-Director. Both recuse from
+      affiliated transaction votes. Full board profiles are available on our
+      <a href="/about#board" style="color:var(--cedar-warm);text-decoration:underline;text-underline-offset:2px">About page</a>.
+    </p>
   </div>
 </section>
 

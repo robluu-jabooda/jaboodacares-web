@@ -22,8 +22,16 @@
     {
       heading: 'Organization',
       links: [
-        { label: 'About',   href: '/about' },
-        { label: 'Give',    href: '/give' },
+        { label: 'About & Board',   href: '/about' },
+        { label: 'Give',            href: '/give' },
+      ],
+    },
+    {
+      heading: 'Transparency',
+      links: [
+        { label: 'Financials & 990', href: '/transparency' },
+        { label: 'Privacy Policy',   href: '/privacy' },
+        { label: 'Donor Privacy',    href: '/donor-privacy' },
       ],
     },
     {
@@ -56,6 +64,7 @@
     '<\/div>' +
     '<div class="jc-ft-bottom">' +
       '<span>501(c)(3) &middot; EIN ' + ORG.ein + '<\/span>' +
+      '<span>Donations are tax-deductible to the extent allowed by law<\/span>' +
       '<span>Equal Housing Opportunity &oplus;<\/span>' +
       '<span>&copy; ' + year + ' ' + ORG.name + '<\/span>' +
     '<\/div>';

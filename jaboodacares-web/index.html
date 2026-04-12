@@ -16,7 +16,8 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"NGO","name":"Jabooda Cares","url":"https://www.jaboodacares.org","telephone":"206-395-9808","email":"robert@jabooda.com","taxID":"99-4589825","address":{"@type":"PostalAddress","streetAddress":"2101 S Grand St","addressLocality":"Seattle","addressRegion":"WA","postalCode":"98144","addressCountry":"US"}}
 </script>
-  <script src="/components/footer.js" defer></script>
+<script src="/components/nav.js" defer></script>
+<script src="/components/footer.js" defer></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;width:100%}
@@ -65,26 +66,7 @@ body{
 }
 
 
-/* ── NAV ── */
-.nav{
-  position:relative;z-index:20;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:2rem 2.5rem 0;
-}
-.nav-brand{
-  display:flex;flex-direction:column;gap:3px;
-}
-.nav-name{
-  font-family:'Playfair Display',serif;
-  font-size:1.1rem;font-weight:700;
-  color:white;letter-spacing:.03em;
-  line-height:1;
-}
-.nav-sub{
-  font-family:'DM Mono',monospace;
-  font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;
-  color:rgba(255,255,255,.38);
-}
+/* ── NAV (injected by nav.js) ── */
 .nav-ein{
   font-family:'DM Mono',monospace;
   font-size:.6rem;letter-spacing:.08em;
@@ -232,14 +214,7 @@ h1 em{
   <div class="hero-photo"></div>
 
 
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="nav-brand">
-      <span class="nav-name">Jabooda Cares</span>
-      <span class="nav-sub">Affordable Housing · Seattle, WA</span>
-    </div>
-    <span class="nav-ein">EIN 99-4589825 · 501(c)(3)</span>
-  </nav>
+  <!-- Nav injected by /components/nav.js -->
 
   <!-- MAIN CONTENT -->
   <div class="hero-body">
@@ -254,21 +229,18 @@ h1 em{
     </h1>
 
     <p class="tagline">
-      We are Jabooda Cares — a community-led nonprofit building
+      We are Jabooda Cares -- a community-led nonprofit building
       permanently affordable homes for the families who know what it
       means to need help and not ask for it.
-      Our full site is coming soon.
     </p>
 
     <div class="cta-row">
-      <!-- Hidden until RVAHI deal confirmed
-      <a href="rvahi/index.html" class="btn-rvahi">
-        Affordable Homeownership in Rainier Valley
-        <span class="arrow">→</span>
+      <a href="/give" class="btn-rvahi">
+        Support Our Work
+        <span class="arrow">&rarr;</span>
       </a>
-      -->
-      <a href="mailto:robert@jabooda.com" class="btn-contact">
-        Contact us
+      <a href="/about" class="btn-contact">
+        About Us
       </a>
     </div>
   </div>
@@ -277,7 +249,7 @@ h1 em{
   <div class="hero-strip">
     <div class="strip-coming">
       <span class="strip-pulse"></span>
-      Full site coming soon · 206-395-9808
+      AANHPI-Led &middot; WMBE-Certified &middot; 501(c)(3) &middot; 206-395-9808
     </div>
     <span class="nav-ein" style="color:rgba(255,255,255,.2);font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em">EIN 99-4589825 · Equal Housing Opportunity</span>
   </div>

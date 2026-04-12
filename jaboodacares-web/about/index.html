@@ -1102,23 +1102,6 @@ function initAboutPage() {
     }]
   });
 
-  /* ── Scroll reveal ── */
-  var revealEls = document.querySelectorAll('.stat-card, .barrier-card, .photo-placeholder, .photo-img, .chart-wrap, .wealth-viz, .metric-block, .col-copy, .story-text, .cta-col, .board-card, .board-cta');
-  revealEls.forEach(function (el) {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1)';
-  });
-  var revealObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-        revealObserver.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  revealEls.forEach(function (el) { revealObserver.observe(el); });
 }
 document.addEventListener('DOMContentLoaded', initAboutPage);
 </script>

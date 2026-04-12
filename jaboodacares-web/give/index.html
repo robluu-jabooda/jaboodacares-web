@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Give | Jabooda Cares - Affordable Housing in Seattle</title>
+<meta name="description" content="Donate to Jabooda Cares, an AANHPI-led 501(c)(3) nonprofit building permanently affordable homes in Seattle for veterans, foster youth, and families. EIN 99-4589825."/>
+<link rel="canonical" href="https://www.jaboodacares.org/give"/>
+<meta property="og:title" content="Give | Jabooda Cares"/>
+<meta property="og:description" content="Support affordable housing in Seattle. Donate to Jabooda Cares, a WMBE-certified nonprofit building permanently affordable homes. EIN 99-4589825."/>
+<meta property="og:url" content="https://www.jaboodacares.org/give"/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Give | Jabooda Cares"/>
+<meta name="twitter:description" content="Support affordable housing in Seattle. Donate to Jabooda Cares. EIN 99-4589825."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"NGO",
+  "name":"Jabooda Cares",
+  "url":"https://www.jaboodacares.org",
+  "telephone":"206-395-9808",
+  "email":"robert@jabooda.com",
+  "taxID":"99-4589825",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"2101 S Grand St",
+    "addressLocality":"Seattle",
+    "addressRegion":"WA",
+    "postalCode":"98144",
+    "addressCountry":"US"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"DonateAction",
+  "name":"Donate to Jabooda Cares",
+  "description":"Support permanently affordable housing in Seattle for veterans, foster youth, and families earning 30% of area median income.",
+  "recipient":{
+    "@type":"NGO",
+    "name":"Jabooda Cares",
+    "taxID":"99-4589825"
+  },
+  "url":"https://www.jaboodacares.org/give"
+}
+</script>
+<script src="/components/nav.js" defer></script>
+<script src="/components/footer.js" defer></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --forest:#0F2318;
+  --forest-mid:#1C3A28;
+  --cedar:#8B4A1C;
+  --cedar-warm:#B5672E;
+  --cedar-faint:#FAF3EB;
+  --cream:#FDFAF5;
+  --gold:#C9922A;
+  --sage:#7A9E86;
+  --ink:#1A1A1A;
+  --ink-mid:#4A4A4A;
+  --ink-soft:#7A7A7A;
+  --border:#D8D0C4;
+  --r:8px;
+  --r2:16px;
+  --mono:'DM Mono',monospace;
+  --serif:'Playfair Display',serif;
+  --sans:'DM Sans',sans-serif;
+  --max-w:1120px;
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--cream);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ── ANIMATION ── */
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+.rise{opacity:0;transform:translateY(20px);animation:rise .8s cubic-bezier(.16,1,.3,1) forwards}
+.rise-d1{animation-delay:.1s}
+.rise-d2{animation-delay:.2s}
+.rise-d3{animation-delay:.3s}
+.rise-d4{animation-delay:.45s}
+
+/* ── HERO ── */
+.hero{
+  background:var(--forest);
+  color:#fff;
+  padding:6rem 2rem 5rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:var(--max-w);
+  margin:0 auto;
+  position:relative;
+}
+.hero-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  font-family:var(--mono);
+  font-size:.65rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.5);
+  margin-bottom:1.5rem;
+}
+.hero-eyebrow-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--cedar-warm);
+}
+.hero h1{
+  font-family:var(--serif);
+  font-size:clamp(2rem,4vw,3rem);
+  font-weight:900;
+  line-height:1.2;
+  color:#fff;
+  margin-bottom:1.25rem;
+  max-width:600px;
+}
+.hero h1 em{
+  font-style:italic;
+  color:#E8C96B;
+}
+.hero-sub{
+  font-size:1.05rem;
+  color:rgba(255,255,255,.6);
+  line-height:1.8;
+  max-width:520px;
+  font-weight:300;
+}
+
+/* ── MAIN CONTENT ── */
+.give-layout{
+  max-width:var(--max-w);
+  margin:0 auto;
+  padding:4rem 2rem 5rem;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4rem;
+  align-items:start;
+}
+
+/* LEFT: WHY GIVE */
+.give-story h2{
+  font-family:var(--serif);
+  font-size:1.5rem;
+  font-weight:700;
+  color:var(--ink);
+  margin-bottom:1.5rem;
+  line-height:1.35;
+}
+.give-story p{
+  color:var(--ink-mid);
+  margin-bottom:1.25rem;
+  font-weight:300;
+  line-height:1.8;
+}
+.give-story p strong{
+  color:var(--ink);
+  font-weight:500;
+}
+
+/* IMPACT STATS */
+.impact-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+  margin:2rem 0;
+}
+.impact-card{
+  background:var(--forest);
+  border-radius:var(--r2);
+  padding:1.5rem;
+  color:#fff;
+}
+.impact-num{
+  font-family:var(--serif);
+  font-size:2rem;
+  font-weight:700;
+  color:#E8C96B;
+  line-height:1;
+  margin-bottom:.5rem;
+}
+.impact-label{
+  font-family:var(--mono);
+  font-size:.65rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.5);
+}
+
+/* FAQ */
+.give-faq{
+  margin-top:2.5rem;
+  border-top:1px solid var(--border);
+  padding-top:2rem;
+}
+.give-faq h3{
+  font-family:var(--serif);
+  font-size:1.1rem;
+  font-weight:700;
+  color:var(--ink);
+  margin-bottom:.75rem;
+}
+.faq-item{
+  margin-bottom:1.5rem;
+}
+.faq-item dt{
+  font-weight:500;
+  color:var(--ink);
+  margin-bottom:.35rem;
+  font-size:.95rem;
+}
+.faq-item dd{
+  color:var(--ink-mid);
+  font-size:.9rem;
+  font-weight:300;
+  line-height:1.7;
+}
+
+/* RIGHT: DONATION FORM */
+.give-form-wrap{
+  position:sticky;
+  top:90px;
+}
+.give-form-header{
+  margin-bottom:1.5rem;
+}
+.give-form-header h2{
+  font-family:var(--serif);
+  font-size:1.3rem;
+  font-weight:700;
+  color:var(--ink);
+  margin-bottom:.5rem;
+}
+.give-form-label{
+  font-family:var(--mono);
+  font-size:.65rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+}
+.give-form-label::before{
+  content:'';
+  display:inline-block;
+  width:18px;height:1px;
+  background:var(--border);
+}
+
+/* Zeffy Embed Container */
+.zeffy-embed{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--r2);
+  overflow:hidden;
+  box-shadow:0 4px 24px rgba(0,0,0,.06);
+}
+.zeffy-embed iframe{
+  display:block;
+  width:100%;
+  height:700px;
+  border:0;
+}
+
+/* COMPLIANCE STRIP */
+.give-compliance{
+  margin-top:1.5rem;
+  padding:1.25rem;
+  background:var(--cedar-faint);
+  border-radius:var(--r);
+  border:1px solid rgba(139,74,28,.1);
+}
+.give-compliance p{
+  font-family:var(--mono);
+  font-size:.7rem;
+  letter-spacing:.04em;
+  color:var(--ink-soft);
+  line-height:1.7;
+}
+
+/* OTHER WAYS */
+.other-ways{
+  background:var(--forest);
+  color:#fff;
+  padding:4rem 2rem;
+}
+.other-ways-inner{
+  max-width:var(--max-w);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:2rem;
+}
+.ow-card{
+  padding:2rem;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--r2);
+}
+.ow-card h3{
+  font-family:var(--serif);
+  font-size:1.1rem;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:.75rem;
+}
+.ow-card p{
+  font-size:.9rem;
+  color:rgba(255,255,255,.55);
+  font-weight:300;
+  line-height:1.7;
+}
+.ow-card a{
+  display:inline-block;
+  margin-top:1rem;
+  font-family:var(--mono);
+  font-size:.72rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--cedar-warm);
+  text-decoration:none;
+  transition:color .2s;
+}
+.ow-card a:hover{color:#E8C96B}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .give-layout{
+    grid-template-columns:1fr;
+    gap:2.5rem;
+    padding:3rem 1.5rem 4rem;
+  }
+  .give-form-wrap{
+    position:static;
+  }
+  .other-ways-inner{
+    grid-template-columns:1fr;
+  }
+}
+@media(max-width:640px){
+  .hero{padding:4rem 1.5rem 3.5rem}
+  .impact-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow rise">
+      <span class="hero-eyebrow-dot"></span>
+      501(c)(3) &middot; EIN 99-4589825
+    </div>
+    <h1 class="rise rise-d1">
+      Every dollar builds a home<br>
+      someone thought they'd <em>never have.</em>
+    </h1>
+    <p class="hero-sub rise rise-d2">
+      Jabooda Cares builds permanently affordable housing for veterans, foster youth,
+      and families earning 30% of area median income in Seattle and Tacoma.
+      Your generosity makes it possible.
+    </p>
+  </div>
+</section>
+
+<!-- ── GIVE LAYOUT ── -->
+<main class="give-layout">
+
+  <!-- LEFT: THE STORY -->
+  <div class="give-story rise rise-d2">
+    <h2>Where Your Donation Goes</h2>
+    <p>
+      We are an AANHPI-led nonprofit that does something most housing organizations cannot:
+      we design, finance, <strong>and build</strong> every project through our affiliated
+      WMBE general contractor, Jabooda Construction. This eliminates the 8-12% contractor
+      margin that typically makes deeply affordable housing financially impossible.
+    </p>
+    <p>
+      That means more of every dollar reaches the families who need it. Your donation
+      supports our pipeline of new permanently affordable homes across Rainier Valley,
+      Judkins Park, and Tacoma's Lincoln District.
+    </p>
+
+    <!-- IMPACT STATS -->
+    <div class="impact-row">
+      <div class="impact-card">
+        <div class="impact-num">437+</div>
+        <div class="impact-label">Affordable homes developed</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-num">$127M</div>
+        <div class="impact-label">Total development value</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-num">30%</div>
+        <div class="impact-label">AMI target income level</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-num">100+</div>
+        <div class="impact-label">New homes in pipeline</div>
+      </div>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <div class="give-faq">
+      <h3>Frequently Asked Questions</h3>
+      <dl>
+        <div class="faq-item">
+          <dt>Is my donation tax-deductible?</dt>
+          <dd>Yes. Jabooda Cares is a 501(c)(3) tax-exempt organization (EIN 99-4589825).
+          Your contribution is tax-deductible to the extent allowed by law. You will
+          receive an automatic tax receipt via email.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Who benefits from affordable housing at 30% AMI?</dt>
+          <dd>In Seattle, 30% of Area Median Income means a household earning roughly
+          $29,000 per year or less. This includes veterans transitioning out of
+          homelessness, foster youth aging out of the system, seniors on fixed incomes,
+          and working families.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>What makes Jabooda Cares different from other housing nonprofits?</dt>
+          <dd>We are one of the few nonprofits that develop and build our own projects.
+          Our affiliated WMBE general contractor eliminates the external contractor margin,
+          making 30% AMI projects financially viable without additional subsidy layers.
+          All affiliated transactions are board-approved and independently certified.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Can I set up a recurring monthly gift?</dt>
+          <dd>Yes. Our donation form supports one-time and monthly giving. Monthly
+          gifts provide steady, predictable support that helps us plan and execute
+          our housing pipeline.</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+
+  <!-- RIGHT: DONATION FORM -->
+  <div class="give-form-wrap rise rise-d3">
+    <div class="give-form-header">
+      <span class="give-form-label">Secure Donation</span>
+      <h2>Make a Gift</h2>
+    </div>
+
+    <div class="zeffy-embed">
+      <iframe
+        title="Donation form powered by Zeffy"
+        src="https://www.zeffy.com/embed/donation-form/support-affordable-housing-in-seattle"
+        allowpaymentrequest
+        allowTransparency="true"
+      ></iframe>
+    </div>
+
+    <div class="give-compliance">
+      <p>
+        Jabooda Cares is a 501(c)(3) tax-exempt organization.
+        EIN 99-4589825. All donations are tax-deductible to the extent
+        allowed by law. No goods or services are provided in exchange
+        for your contribution. Donation processing is handled securely
+        by Zeffy. 100% of your donation reaches Jabooda Cares.
+      </p>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── OTHER WAYS TO GIVE ── -->
+<section class="other-ways">
+  <div class="other-ways-inner">
+    <div class="ow-card">
+      <h3>Give by Check</h3>
+      <p>
+        Make checks payable to Jabooda Cares and mail to:<br>
+        2101 S Grand St<br>
+        Seattle, WA 98144
+      </p>
+    </div>
+    <div class="ow-card">
+      <h3>Corporate Partnerships</h3>
+      <p>
+        Our projects qualify for CRA credit in King County LMI census tracts.
+        Contact us to discuss corporate giving, sponsorships, or
+        community development partnerships.
+      </p>
+      <a href="/partners/">Learn about CRA partnerships &#8594;</a>
+    </div>
+    <div class="ow-card">
+      <h3>Volunteer</h3>
+      <p>
+        We need skilled professionals in finance, legal, construction,
+        and community outreach. Your time and expertise directly
+        accelerate affordable housing.
+      </p>
+      <a href="mailto:robert@jabooda.com">Get in touch &#8594;</a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

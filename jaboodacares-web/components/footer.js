@@ -15,7 +15,6 @@
     {
       heading: 'Programs',
       links: [
-        { label: 'RVAHI Homeownership', href: '/rvahi/' },
         { label: 'Partners',            href: '/partners/' },
       ],
     },

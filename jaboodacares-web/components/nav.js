@@ -7,7 +7,6 @@
   var NAV_LINKS = [
     { label: 'Home',        href: '/' },
     { label: 'About',       href: '/about' },
-    { label: 'RVAHI',       href: '/rvahi/' },
     { label: 'Partners',    href: '/partners/' },
     { label: 'Give',        href: '/give' },
   ];

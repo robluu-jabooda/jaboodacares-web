@@ -16,7 +16,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"NGO","name":"Jabooda Cares","url":"https://www.jaboodacares.org","telephone":"206-395-9808","email":"robert@jabooda.com","taxID":"99-4589825","address":{"@type":"PostalAddress","streetAddress":"2101 S Grand St","addressLocality":"Seattle","addressRegion":"WA","postalCode":"98144","addressCountry":"US"}}
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.7/chart.umd.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.7/chart.umd.min.js"></script>
 <script src="/components/nav.js" defer></script>
 <script src="/components/footer.js" defer></script>
 <style>
@@ -990,9 +990,13 @@ body {
      CHART.JS INIT
      ═══════════════════════════════════════════ -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+function initAboutPage() {
   var chartEl = document.getElementById('chart-homeownership');
-  if (!chartEl || typeof Chart === 'undefined') return;
+  if (!chartEl) return;
+  if (typeof Chart === 'undefined') {
+    setTimeout(initAboutPage, 100);
+    return;
+  }
 
   var labels = [
     'Taiwanese', 'Vietnamese', 'Japanese', 'Chinese', 'Filipino',
@@ -1115,7 +1119,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }, { threshold: 0.1 });
   revealEls.forEach(function (el) { revealObserver.observe(el); });
-});
+}
+document.addEventListener('DOMContentLoaded', initAboutPage);
 </script>
 
 </body>

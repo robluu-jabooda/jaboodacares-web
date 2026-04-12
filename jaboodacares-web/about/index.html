@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>About | Jabooda Cares</title>
+<meta name="description" content="Jabooda Cares is an AANHPI-led nonprofit developing affordable housing for communities who know what it means to need help and not ask for it. EIN 99-4589825."/>
+<link rel="canonical" href="https://www.jaboodacares.org/about"/>
+<meta property="og:title" content="About | Jabooda Cares"/>
+<meta property="og:description" content="AANHPI-led nonprofit developing affordable housing in Seattle and Tacoma."/>
+<meta property="og:url" content="https://www.jaboodacares.org/about"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"NGO","name":"Jabooda Cares","url":"https://www.jaboodacares.org","telephone":"206-395-9808","email":"robert@jabooda.com","taxID":"99-4589825","address":{"@type":"PostalAddress","streetAddress":"2101 S Grand St","addressLocality":"Seattle","addressRegion":"WA","postalCode":"98144","addressCountry":"US"}}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.7/chart.umd.min.js" defer></script>
+<script src="/components/nav.js" defer></script>
+<script src="/components/footer.js" defer></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --forest: #0F2318;
+  --forest-mid: #1C3A28;
+  --cedar: #8B4A1C;
+  --cedar-warm: #B5672E;
+  --cedar-faint: #FAF3EB;
+  --cream: #FDFAF5;
+  --gold: #C9922A;
+  --sage: #7A9E86;
+  --ink: #1A1A1A;
+  --ink-mid: #4A4A4A;
+  --ink-soft: #7A7A7A;
+  --border: #D8D0C4;
+  --ground: #FAFAF7;
+  --ground-2: #F2F0EB;
+  --r: 8px;
+  --r2: 16px;
+  --mono: 'DM Mono', monospace;
+  --serif: 'Playfair Display', serif;
+  --sans: 'DM Sans', sans-serif;
+  --max-w: 1120px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── ANIMATION ── */
+@keyframes rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: rise .8s cubic-bezier(.16,1,.3,1) forwards;
+}
+.rise-d1 { animation-delay: .1s; }
+.rise-d2 { animation-delay: .2s; }
+.rise-d3 { animation-delay: .3s; }
+.rise-d4 { animation-delay: .45s; }
+.rise-d5 { animation-delay: .6s; }
+
+/* ── SECTION DEFAULTS ── */
+.section {
+  padding: 5rem 2rem;
+}
+.section-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.section-label {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: 1.25rem;
+}
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--forest);
+  color: #fff;
+  padding: 6rem 2rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.hero-copy {
+  position: relative;
+  z-index: 2;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 1.5rem;
+}
+.hero-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cedar-warm);
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: #fff;
+  margin-bottom: 2rem;
+  max-width: 520px;
+}
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.hero-tag {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .06em;
+  padding: .35rem .75rem;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,.2);
+  color: rgba(255,255,255,.7);
+}
+.hero-tag--pending {
+  border-color: rgba(201,146,42,.5);
+  color: rgba(201,146,42,.85);
+}
+.hero-tag--active {
+  border-color: rgba(181,103,46,.6);
+  color: var(--cedar-warm);
+  background: rgba(181,103,46,.1);
+}
+.hero-photo-placeholder {
+  background: rgba(255,255,255,.06);
+  border: 1px dashed rgba(255,255,255,.15);
+  border-radius: var(--r2);
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  color: rgba(255,255,255,.3);
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .06em;
+}
+.hero-photo-placeholder svg {
+  width: 32px;
+  height: 32px;
+  opacity: .4;
+}
+
+/* ── PHOTO PLACEHOLDER (reusable) ── */
+.photo-placeholder {
+  background: var(--ground-2);
+  border: 1px dashed var(--border);
+  border-radius: var(--r);
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  color: var(--ink-soft);
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .04em;
+  text-align: center;
+  padding: 1rem;
+}
+.photo-placeholder svg {
+  width: 28px;
+  height: 28px;
+  opacity: .35;
+}
+.photo-placeholder--dark {
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.12);
+  color: rgba(255,255,255,.3);
+}
+
+/* ── STAT CARDS ── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.stat-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  padding: 2rem;
+}
+.stat-number {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--forest);
+  line-height: 1;
+  margin-bottom: .75rem;
+}
+.stat-context {
+  font-size: .92rem;
+  color: var(--ink-mid);
+  line-height: 1.55;
+  margin-bottom: .75rem;
+}
+.stat-source {
+  font-family: var(--mono);
+  font-size: .65rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  letter-spacing: .02em;
+}
+
+/* ── PHOTO ROW ── */
+.photo-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* ── TWO-COL LAYOUT ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.two-col--reverse {
+  direction: rtl;
+}
+.two-col--reverse > * {
+  direction: ltr;
+}
+.col-copy h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--forest);
+  line-height: 1.3;
+  margin-bottom: 1.25rem;
+}
+.col-copy p {
+  font-size: .95rem;
+  color: var(--ink-mid);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+.pull-quote {
+  border-left: 3px solid var(--cedar-warm);
+  padding: 1rem 0 1rem 1.25rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--ink-mid);
+  font-size: .92rem;
+  line-height: 1.65;
+}
+.pull-quote cite {
+  display: block;
+  margin-top: .5rem;
+  font-family: var(--mono);
+  font-size: .68rem;
+  font-style: normal;
+  color: var(--ink-soft);
+  letter-spacing: .04em;
+}
+
+/* ── CHART SECTION ── */
+.chart-wrap {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  padding: 2rem;
+}
+.chart-title {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 1.25rem;
+}
+.chart-source {
+  font-family: var(--mono);
+  font-size: .62rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin-top: 1rem;
+  letter-spacing: .02em;
+}
+
+/* ── WEALTH BAR VIZ ── */
+.wealth-viz {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  padding: 2rem;
+}
+.wealth-pair {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.wealth-col {
+  text-align: center;
+  flex: 1;
+  max-width: 180px;
+}
+.wealth-year {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.wealth-bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1rem;
+  height: 200px;
+  margin-bottom: .75rem;
+}
+.wealth-bar {
+  width: 48px;
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: .5rem;
+  transition: height .6s cubic-bezier(.16,1,.3,1);
+}
+.wealth-bar-label {
+  font-family: var(--mono);
+  font-size: .6rem;
+  color: #fff;
+  letter-spacing: .04em;
+  text-align: center;
+  line-height: 1.2;
+}
+.wealth-bar-label--dark {
+  color: var(--ink-mid);
+}
+.wealth-bar--owner {
+  background: var(--cedar-warm);
+}
+.wealth-bar--renter {
+  background: var(--ground-2);
+  border: 1px solid var(--border);
+}
+.wealth-legend {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: .65rem;
+  color: var(--ink-soft);
+  letter-spacing: .04em;
+}
+.wealth-legend-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin-right: .4rem;
+  vertical-align: middle;
+}
+
+/* ── FOUR STAT CARDS ── */
+.stat-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ── BARRIER GRID ── */
+.barrier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  background: var(--cedar-faint);
+  border-radius: var(--r2);
+  padding: 2.5rem;
+}
+.barrier-card h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--forest);
+  margin-bottom: .75rem;
+}
+.barrier-card p {
+  font-size: .88rem;
+  color: var(--ink-mid);
+  line-height: 1.6;
+}
+
+/* ── ORIGIN STORY ── */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.story-text h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--forest);
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+.story-text p {
+  font-size: .92rem;
+  color: var(--ink-mid);
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+.photo-grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.photo-grid-2x2 .photo-placeholder {
+  min-height: 180px;
+}
+
+/* ── PORTFOLIO NUMBERS ── */
+.metrics-row {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 3rem;
+}
+.metric-block {
+  text-align: center;
+  padding: 0 3rem;
+  border-right: 1px solid var(--border);
+}
+.metric-block:last-child {
+  border-right: none;
+}
+.metric-number {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--forest);
+  line-height: 1;
+  margin-bottom: .5rem;
+}
+.metric-label {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ── DUAL CTA ── */
+.cta-section {
+  background: var(--cedar-faint);
+  padding: 5rem 2rem;
+}
+.cta-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  align-items: start;
+}
+.cta-divider {
+  width: 1px;
+  background: var(--border);
+  align-self: stretch;
+}
+.cta-col {
+  padding: 0 3rem;
+}
+.cta-col-label {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--cedar);
+  margin-bottom: 1rem;
+}
+.cta-col h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-weight: 700;
+  color: var(--forest);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+.cta-col p {
+  font-size: .92rem;
+  color: var(--ink-mid);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--cedar-warm);
+  color: #fff;
+  padding: .85rem 2rem;
+  border-radius: 6px;
+  font-size: .9rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: .02em;
+  transition: background .2s, transform .15s, box-shadow .2s;
+}
+.btn-primary:hover {
+  background: var(--cedar);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(181,103,46,.3);
+}
+.lang-links {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.lang-links a {
+  display: inline-block;
+  background: var(--forest);
+  color: #fff;
+  padding: .7rem 1.5rem;
+  border-radius: 6px;
+  font-size: .88rem;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  transition: background .2s, transform .15s;
+}
+.lang-links a:hover {
+  background: var(--forest-mid);
+  transform: translateY(-1px);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-photo-placeholder { min-height: 280px; }
+  .stat-grid { grid-template-columns: 1fr; }
+  .stat-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .two-col, .two-col--reverse { grid-template-columns: 1fr; gap: 2.5rem; }
+  .two-col--reverse { direction: ltr; }
+  .story-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .barrier-grid { grid-template-columns: 1fr; padding: 1.5rem; }
+  .photo-row { grid-template-columns: 1fr; }
+  .metrics-row { flex-direction: column; align-items: center; gap: 2rem; }
+  .metric-block { border-right: none; border-bottom: 1px solid var(--border); padding: 0 0 2rem; }
+  .metric-block:last-child { border-bottom: none; padding-bottom: 0; }
+  .cta-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .cta-divider { width: 100%; height: 1px; }
+  .cta-col { padding: 0; }
+}
+
+@media (max-width: 640px) {
+  .section { padding: 3.5rem 1.25rem; }
+  .hero { padding: 4rem 1.25rem 3.5rem; }
+  .photo-grid-2x2 { grid-template-columns: 1fr; }
+  .cta-section { padding: 3.5rem 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1: HERO — THE WORLD AS IT IS
+     ═══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-eyebrow rise">
+        <span class="hero-eyebrow-dot"></span>
+        About Jabooda Cares
+      </div>
+      <h1 class="rise rise-d1">Jabooda Cares is an AANHPI-led nonprofit developing affordable housing for the families who know what it means to need help and not ask for it.</h1>
+      <div class="hero-tags rise rise-d3">
+        <span class="hero-tag hero-tag--active">501(c)(3)</span>
+        <span class="hero-tag hero-tag--active">King County</span>
+        <span class="hero-tag hero-tag--active">Pierce County</span>
+      </div>
+    </div>
+    <div class="hero-photo-placeholder rise rise-d2">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+      Hero photo: community or building
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 3: THE GAP — DATA SECTION
+     ═══════════════════════════════════════════ -->
+<section class="section" id="gap">
+  <div class="section-inner">
+    <div class="section-label">The gap the data reveals</div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-number">34.3%</div>
+        <div class="stat-context">Samoan homeownership rate. White Americans: 73.2%. The same acronym hides a 39-point gap.</div>
+        <div class="stat-source">AREAA State of Asia America 2025</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">6%</div>
+        <div class="stat-context">AANHPI first-time buyers who use government or nonprofit assistance, vs. 20%+ for Black homebuyers. The help exists. The community does not ask.</div>
+        <div class="stat-source">Urban Institute 2026</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">$506K</div>
+        <div class="stat-context">Wealth gap between AANHPI homeowners ($516K median) and AANHPI renters ($10K median) by 2023. Renters did not just fall behind. They went backward.</div>
+        <div class="stat-source">Urban Institute 2026</div>
+      </div>
+    </div>
+
+    <div class="photo-row">
+      <div class="photo-placeholder">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        Resident photo: seniors
+      </div>
+      <div class="photo-placeholder">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        Multigenerational family
+      </div>
+      <div class="photo-placeholder">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        Building or construction
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 4: NOT A MONOLITH — DATA VIZ
+     ═══════════════════════════════════════════ -->
+<section class="section" style="background:var(--ground);" id="data">
+  <div class="section-inner">
+    <div class="two-col">
+      <div class="col-copy">
+        <div class="section-label">Not a monolith</div>
+        <h2>Homeownership rates across the AANHPI community span nearly 40 points.</h2>
+        <p>Aggregate data erases the communities most in need. When Samoan, Hawaiian, Hmong, and Bangladeshi households are averaged into a single number, their structural disadvantage disappears from view and from policy. Jabooda's By-and-For approach ensures the communities at the bottom of this chart are the ones we serve.</p>
+        <div class="pull-quote">
+          "The general public still sees Asians as one monolithic group and makes blanket assumptions about housing needs. By disaggregating the data, the real story is revealed."
+          <cite>AREAA 2025</cite>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <div class="chart-title">Homeownership rate by AANHPI subgroup</div>
+        <canvas id="chart-homeownership" height="460"></canvas>
+        <div class="chart-source">AREAA State of Asia America 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 5: THE WEALTH STAKES
+     ═══════════════════════════════════════════ -->
+<section class="section" id="wealth">
+  <div class="section-inner">
+    <div class="two-col two-col--reverse">
+      <div class="col-copy">
+        <div class="section-label">The wealth stakes</div>
+        <h2>Renters do not just fall behind. They go backward.</h2>
+        <p>Between 1999 and 2023, AANHPI homeowner median wealth grew from $236,000 to $516,000. AANHPI renter wealth declined, ending at $10,237. This is why affordable housing is not charity. It is the on-ramp to generational wealth for families locked out by language barriers, credit invisibility, and cultural stigma around asking for help.</p>
+        <div class="pull-quote">
+          "In the early stages of homeownership, more than 40% of financial support flows upward from children to parents. In later stages it reverses. Housing wealth is how AANHPI families take care of each other across generations."
+          <cite>Urban Institute 2026</cite>
+        </div>
+      </div>
+      <div>
+        <div class="wealth-viz">
+          <div class="wealth-pair">
+            <div class="wealth-col">
+              <div class="wealth-year">1999</div>
+              <div class="wealth-bars">
+                <div class="wealth-bar wealth-bar--owner" style="height:45%;">
+                  <span class="wealth-bar-label">$236K</span>
+                </div>
+                <div class="wealth-bar wealth-bar--renter" style="height:8%;">
+                  <span class="wealth-bar-label wealth-bar-label--dark">$17K</span>
+                </div>
+              </div>
+            </div>
+            <div class="wealth-col">
+              <div class="wealth-year">2023</div>
+              <div class="wealth-bars">
+                <div class="wealth-bar wealth-bar--owner" style="height:100%;">
+                  <span class="wealth-bar-label">$516K</span>
+                </div>
+                <div class="wealth-bar wealth-bar--renter" style="height:4%;">
+                  <span class="wealth-bar-label wealth-bar-label--dark">$10K</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="wealth-legend">
+            <span><span class="wealth-legend-dot" style="background:var(--cedar-warm);"></span>Owners</span>
+            <span><span class="wealth-legend-dot" style="background:var(--ground-2);border:1px solid var(--border);"></span>Renters</span>
+          </div>
+          <div class="chart-source" style="margin-top:1rem;">Urban Institute January 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 6: WHY CULTURAL COMPETENCY
+     ═══════════════════════════════════════════ -->
+<section class="section" style="background:var(--ground);" id="competency">
+  <div class="section-inner">
+    <div class="section-label">Why cultural competency is the intervention</div>
+
+    <div class="stat-grid-4">
+      <div class="stat-card">
+        <div class="stat-number">27.9%</div>
+        <div class="stat-context">Asian Americans with limited English proficiency. Highest LEP rate of any racial group.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">74.6%</div>
+        <div class="stat-context">Asian Americans who are foreign-born. The only major racial group where most members are immigrants.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">42.1%</div>
+        <div class="stat-context">NHPI homeownership rate in the West, vs. 62.9% for Asian alone in the same region.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">38pt</div>
+        <div class="stat-context">Gap between AANHPI inheritance intention (47%) and realization (9%). Largest of any racial group.</div>
+      </div>
+    </div>
+
+    <div class="barrier-grid">
+      <div class="barrier-card">
+        <h3>Korean households</h3>
+        <p>44% homeownership in LA metro. About 70% LEP rate. Rely on kye, informal rotating credit circles, rather than formal mortgage products.</p>
+      </div>
+      <div class="barrier-card">
+        <h3>Cambodian households</h3>
+        <p>48% homeownership in LA metro. Banks may have Cambodian translators. Lenders do not. Underreport income due to documentation barriers. Use tontine lending circles.</p>
+      </div>
+      <div class="barrier-card">
+        <h3>Pacific Islander households</h3>
+        <p>Samoan 34.3% nationally. Chamorro 47.4%. More likely to rely on informal community networks than government resources. Experiences of indigeneity and land displacement are distinct from the immigrant experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 7: OUR STORY
+     ═══════════════════════════════════════════ -->
+<section class="section" id="story">
+  <div class="section-inner">
+    <div class="story-grid">
+      <div class="story-text">
+        <div class="section-label">Our story</div>
+        <h2>Built by the community it serves.</h2>
+
+        <p>Jabooda Cares was founded in 2024 by Kaitlyn Huynh after years of watching the same story repeat itself. Seniors and families across the AANHPI community were quietly reaching out, not to agencies, not to hotlines, but to people they trusted. They needed housing. They did not know where to start. And they were not asking loudly.</p>
+
+        <p>Kaitlyn had seen the demand up close. The waitlists at Melody and Symphony Apartments, Jabooda's MFTE properties in Seattle, had grown steadily, reflecting a community with real need and limited options. Apollo Heights in Tacoma was still under construction, and already the same pattern was emerging. The demand was not a projection. It was a list of names.</p>
+
+        <p>Robert Luu joined Jabooda Cares in 2025 with a parallel conviction built from the ground up. As a developer, he had converted two hotels into NOAH workforce housing: 145 units in Tacoma, now completed and 95% occupied in under three years, and 120 units in Fife, currently under construction. He had also served on the board of the AREAA Greater Seattle chapter, where he saw firsthand the gap between the community's homeownership aspirations and the structural barriers standing in the way.</p>
+
+        <p>Kaitlyn and Robert arrived at the same conclusion from different directions. The AANHPI community needed a developer that understood it from the inside. Not an organization that served this community, but one built by it.</p>
+
+        <p>In 2025, Jabooda Cares laid the groundwork, engaging city councilmembers, meeting with mission-aligned lenders including Amazon Housing Equity Fund and Ballmer Group, and building relationships with nonprofit partners, community leaders, and housing advocates across the region.</p>
+      </div>
+      <div class="photo-grid-2x2">
+        <div class="photo-placeholder">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          Kaitlyn Huynh
+        </div>
+        <div class="photo-placeholder">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          Robert Luu
+        </div>
+        <div class="photo-placeholder">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          Melody Apartments
+        </div>
+        <div class="photo-placeholder">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          Apollo Heights Tacoma
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 8: PORTFOLIO NUMBERS
+     ═══════════════════════════════════════════ -->
+<section class="section" style="background:var(--ground);" id="portfolio">
+  <div class="section-inner">
+    <div class="metrics-row">
+      <div class="metric-block">
+        <div class="metric-number">400+</div>
+        <div class="metric-label">Units completed</div>
+      </div>
+      <div class="metric-block">
+        <div class="metric-number">$104M</div>
+        <div class="metric-label">Total development</div>
+      </div>
+      <div class="metric-block">
+        <div class="metric-number">3</div>
+        <div class="metric-label">Completed properties</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="col-copy">
+        <p>Melody Apartments, Symphony Apartments, and Apollo Heights represent over $104M in completed development across Seattle and Tacoma, serving working families and seniors at affordable rent levels.</p>
+      </div>
+      <div class="photo-placeholder" style="min-height:240px;">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        Building exterior
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 9: DUAL CTA
+     ═══════════════════════════════════════════ -->
+<section class="cta-section" id="contact">
+  <div class="cta-grid">
+    <div class="cta-col">
+      <div class="cta-col-label">For funders and partners</div>
+      <h2>If you finance, build, or advocate for affordable housing, we should talk.</h2>
+      <p>Jabooda Cares is actively seeking mission-aligned lenders, syndicators, equity partners, and capacity building funders for our 2026 pipeline.</p>
+      <a href="mailto:robert@jabooda.com" class="btn-primary">Partner with us</a>
+    </div>
+    <div class="cta-divider"></div>
+    <div class="cta-col">
+      <div class="cta-col-label">For the community</div>
+      <h2>Looking for housing or know someone who is?</h2>
+      <p>Get on our list. We will reach out when units become available.</p>
+      <div class="lang-links">
+        <a href="mailto:robert@jabooda.com">Get on our list</a>
+        <a href="mailto:robert@jabooda.com">&#272;&#259;ng k&yacute; danh s&aacute;ch</a>
+        <a href="mailto:robert@jabooda.com">&#21152;&#20837;&#20505;&#34917;&#21517;&#21333;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CHART.JS INIT
+     ═══════════════════════════════════════════ -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var chartEl = document.getElementById('chart-homeownership');
+  if (!chartEl || typeof Chart === 'undefined') return;
+
+  var labels = [
+    'Taiwanese', 'Vietnamese', 'Japanese', 'Chinese', 'Filipino',
+    'AANHPI Average', 'Asian Indian', 'Korean', 'Hmong',
+    'Hawaiian', 'Bangladeshi', 'Chamorro', 'Other Pacific Islander', 'Samoan'
+  ];
+  var data = [72.0, 68.6, 67.9, 66.8, 63.8, 63.3, 62.7, 57.0, 54.9, 52.4, 51.6, 47.4, 36.9, 34.3];
+
+  var forest = '#1C3A28';
+  var sage = '#7A9E86';
+  var dark = '#0F2318';
+  var avg = 63.3;
+
+  var colors = data.map(function (v, i) {
+    if (i >= 11) return dark;
+    if (v >= avg) return forest;
+    return sage;
+  });
+
+  new Chart(chartEl, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        data: data,
+        backgroundColor: colors,
+        borderRadius: 3,
+        barThickness: 18
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { right: 20 } },
+      plugins: {
+        legend: { display: false },
+        annotation: {
+          annotations: {
+            whiteLine: {
+              type: 'line',
+              xMin: 73.2,
+              xMax: 73.2,
+              borderColor: 'rgba(26,26,26,0.35)',
+              borderWidth: 1.5,
+              borderDash: [6, 4],
+              label: {
+                display: true,
+                content: 'White non-Latino 73.2%',
+                position: 'start',
+                font: { family: "'DM Mono', monospace", size: 10 },
+                color: 'rgba(26,26,26,0.5)'
+              }
+            }
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: function (ctx) { return ctx.parsed.x + '%'; }
+          }
+        }
+      },
+      scales: {
+        x: {
+          min: 0, max: 80,
+          grid: { color: 'rgba(0,0,0,0.05)' },
+          ticks: {
+            font: { family: "'DM Mono', monospace", size: 10 },
+            color: '#7A7A7A',
+            callback: function (v) { return v + '%'; }
+          }
+        },
+        y: {
+          grid: { display: false },
+          ticks: {
+            font: { family: "'DM Sans', sans-serif", size: 12 },
+            color: '#4A4A4A'
+          }
+        }
+      }
+    },
+    plugins: [{
+      id: 'refLine',
+      afterDraw: function (chart) {
+        var xScale = chart.scales.x;
+        var x = xScale.getPixelForValue(73.2);
+        var ctx = chart.ctx;
+        ctx.save();
+        ctx.beginPath();
+        ctx.setLineDash([6, 4]);
+        ctx.strokeStyle = 'rgba(26,26,26,0.3)';
+        ctx.lineWidth = 1.5;
+        ctx.moveTo(x, chart.chartArea.top);
+        ctx.lineTo(x, chart.chartArea.bottom);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.font = "10px 'DM Mono', monospace";
+        ctx.fillStyle = 'rgba(26,26,26,0.45)';
+        ctx.textAlign = 'center';
+        ctx.fillText('White non-Latino 73.2%', x, chart.chartArea.top - 6);
+        ctx.restore();
+      }
+    }]
+  });
+
+  /* ── Scroll reveal ── */
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('rise');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.stat-card, .barrier-card, .photo-placeholder, .chart-wrap, .wealth-viz, .metric-block').forEach(function (el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1)';
+    observer.observe(el);
+  });
+
+  observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.stat-card, .barrier-card, .photo-placeholder, .chart-wrap, .wealth-viz, .metric-block').forEach(function (el) {
+    observer.observe(el);
+  });
+});
+</script>
+
+</body>
+</html>

@@ -546,7 +546,7 @@ h3{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--ink);ma
     </div>
 
     <div>
-      <form class="lead-form" id="investForm" action="https://formspree.io/f/placeholder" method="POST">
+      <form class="lead-form" id="investForm">
         <input type="hidden" name="_source" value="invest-eb5"/>
         <div class="form-row">
           <div class="form-group">
@@ -684,26 +684,47 @@ h3{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--ink);ma
 </footer>
 
 <script>
-document.getElementById('investForm').addEventListener('submit', function(e) {
+document.getElementById('investForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   var form = this;
+  var btn = form.querySelector('.btn-submit');
+  var origText = btn.innerHTML;
+  btn.innerHTML = 'Sending...';
+  btn.disabled = true;
+
   var data = new FormData(form);
+  var payload = { _source: 'invest-eb5' };
+  data.forEach(function(v, k) { payload[k] = v; });
 
-  var subject = encodeURIComponent('EB-5 Investor Inquiry: ' + data.get('name') + ' (' + data.get('country') + ')');
-  var body = encodeURIComponent(
-    'Name: ' + data.get('name') + '\n' +
-    'Email: ' + data.get('email') + '\n' +
-    'Phone/WhatsApp: ' + data.get('phone') + '\n' +
-    'Country: ' + data.get('country') + '\n' +
-    'Timeline: ' + data.get('timeline') + '\n' +
-    'Has Attorney: ' + data.get('has_attorney') + '\n' +
-    'Message: ' + data.get('message')
-  );
+  try {
+    var res = await fetch('/api/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
 
-  window.location.href = 'mailto:robert@jabooda.com?subject=' + subject + '&body=' + body;
-
-  form.style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
+    if (res.ok) {
+      form.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    } else {
+      throw new Error('Server error');
+    }
+  } catch (err) {
+    // Fallback to mailto if API is unavailable
+    var subject = encodeURIComponent('EB-5 Investor Inquiry: ' + payload.name);
+    var body = encodeURIComponent(
+      'Name: ' + payload.name + '\nEmail: ' + payload.email +
+      '\nPhone/WhatsApp: ' + payload.phone + '\nCountry: ' + payload.country +
+      '\nTimeline: ' + payload.timeline + '\nHas Attorney: ' + payload.has_attorney +
+      '\nMessage: ' + payload.message
+    );
+    window.location.href = 'mailto:robert@jabooda.com?subject=' + subject + '&body=' + body;
+    form.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  } finally {
+    btn.innerHTML = origText;
+    btn.disabled = false;
+  }
 });
 </script>
 

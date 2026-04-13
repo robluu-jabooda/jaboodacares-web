@@ -450,7 +450,7 @@ h3{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--ink);ma
     </div>
 
     <div>
-      <form class="lead-form" id="buildForm" action="https://formspree.io/f/placeholder" method="POST">
+      <form class="lead-form" id="buildForm">
         <input type="hidden" name="_source" value="build-with-us"/>
         <div class="form-row">
           <div class="form-group">
@@ -592,30 +592,48 @@ h3{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--ink);ma
 </footer>
 
 <script>
-// Simple form handling - replace with real backend
-document.getElementById('buildForm').addEventListener('submit', function(e) {
+document.getElementById('buildForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   var form = this;
+  var btn = form.querySelector('.btn-submit');
+  var origText = btn.innerHTML;
+  btn.innerHTML = 'Sending...';
+  btn.disabled = true;
+
   var data = new FormData(form);
+  var payload = { _source: 'build-with-us' };
+  data.forEach(function(v, k) { payload[k] = v; });
 
-  // For now, mailto fallback until form backend is set up
-  var subject = encodeURIComponent('Build With Us Inquiry: ' + data.get('name') + ' - ' + data.get('company'));
-  var body = encodeURIComponent(
-    'Name: ' + data.get('name') + '\n' +
-    'Company: ' + data.get('company') + '\n' +
-    'Email: ' + data.get('email') + '\n' +
-    'Phone: ' + data.get('phone') + '\n' +
-    'Project Type: ' + data.get('project_type') + '\n' +
-    'Units: ' + data.get('unit_count') + '\n' +
-    'Stage: ' + data.get('project_stage') + '\n' +
-    'Location: ' + data.get('location') + '\n' +
-    'Details: ' + data.get('details')
-  );
+  try {
+    var res = await fetch('/api/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
 
-  window.location.href = 'mailto:robert@jabooda.com?subject=' + subject + '&body=' + body;
-
-  form.style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
+    if (res.ok) {
+      form.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    } else {
+      throw new Error('Server error');
+    }
+  } catch (err) {
+    // Fallback to mailto if API is unavailable
+    var subject = encodeURIComponent('Build With Us Inquiry: ' + payload.name);
+    var body = encodeURIComponent(
+      'Name: ' + payload.name + '\nCompany: ' + payload.company +
+      '\nEmail: ' + payload.email + '\nPhone: ' + payload.phone +
+      '\nProject Type: ' + payload.project_type + '\nUnits: ' + payload.unit_count +
+      '\nStage: ' + payload.project_stage + '\nLocation: ' + payload.location +
+      '\nDetails: ' + payload.details
+    );
+    window.location.href = 'mailto:robert@jabooda.com?subject=' + subject + '&body=' + body;
+    form.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  } finally {
+    btn.innerHTML = origText;
+    btn.disabled = false;
+  }
 });
 </script>
 

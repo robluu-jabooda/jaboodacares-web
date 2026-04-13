@@ -1,0 +1,10 @@
+# Cloudflare Pages configuration for jaboodacares.org
+# Manages bindings for Pages Functions (functions/api/leads.js)
+
+name = "jaboodacares-web"
+compatibility_date = "2024-09-23"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "jabooda-leads"
+database_id = "6c1077bd-ffdc-4554-9d0c-aaea3e974e1c"

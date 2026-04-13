@@ -88,6 +88,7 @@
 }
 </script>
 <!-- No shared nav/footer on this page - hidden lead gen page -->
+<script src="/components/analytics.js" defer></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -612,6 +613,14 @@ document.getElementById('buildForm').addEventListener('submit', async function(e
     });
 
     if (res.ok) {
+      // GA4 conversion event
+      if (window.gtag) {
+        gtag('event', 'generate_lead', {
+          event_category: 'construction',
+          event_label: payload.project_type || 'unknown',
+          value: 1
+        });
+      }
       form.style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
     } else {

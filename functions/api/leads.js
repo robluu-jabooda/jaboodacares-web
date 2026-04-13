@@ -7,12 +7,13 @@
  *   - /invest/ (EB-5 investor leads)
  *
  * Stores leads in D1 database (binding: DB)
- * Sends email notification via MailChannels (free on CF Workers)
+ * Forwards to Google Sheets via Apps Script webhook (email notification handled there)
  *
  * Environment bindings required:
  *   DB - D1 database "jabooda-leads"
- *   NOTIFY_EMAIL - destination email (set in Pages settings)
  */
+
+const GOOGLE_SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbwGJi7Vh6uEpCpEDzwlZl2bfNI10avYM3mvXPdgb7l7cdiYTJH2CosR7BbvF4kug0EZ/exec";
 
 // CORS headers for same-origin and local dev
 const CORS_HEADERS = {
@@ -44,8 +45,8 @@ export async function onRequestPost(context) {
       result = await handleInvestorLead(env, body);
     }
 
-    // Send email notification (best effort, don't block response)
-    context.waitUntil(sendNotification(env, source, body));
+    // Forward to Google Sheet + email notification (best effort, don't block response)
+    context.waitUntil(forwardToGoogleSheet(body));
 
     return jsonResponse({ success: true, id: result.id }, 200);
 
@@ -96,59 +97,16 @@ async function handleInvestorLead(env, body) {
   return { id: res.meta.last_row_id };
 }
 
-async function sendNotification(env, source, body) {
-  const to = env.NOTIFY_EMAIL || "robert@jabooda.com";
-  const isConstruction = source === "build-with-us";
-
-  const subject = isConstruction
-    ? `New Construction Lead: ${body.name}${body.company ? " (" + body.company + ")" : ""}`
-    : `New EB-5 Investor Inquiry: ${body.name}${body.country ? " (" + body.country + ")" : ""}`;
-
-  let text = "";
-  if (isConstruction) {
-    text = [
-      `Name: ${body.name}`,
-      `Company: ${body.company || "N/A"}`,
-      `Email: ${body.email}`,
-      `Phone: ${body.phone || "N/A"}`,
-      `Project Type: ${body.project_type || "N/A"}`,
-      `Units: ${body.unit_count || "N/A"}`,
-      `Stage: ${body.project_stage || "N/A"}`,
-      `Location: ${body.location || "N/A"}`,
-      `Details: ${body.details || "N/A"}`,
-      "",
-      "View all leads: https://dash.cloudflare.com (D1 > jabooda-leads > construction_leads)",
-    ].join("\n");
-  } else {
-    text = [
-      `Name: ${body.name}`,
-      `Email: ${body.email}`,
-      `Phone/WhatsApp: ${body.phone || "N/A"}`,
-      `Country: ${body.country || "N/A"}`,
-      `Timeline: ${body.timeline || "N/A"}`,
-      `Has Attorney: ${body.has_attorney || "N/A"}`,
-      `Message: ${body.message || "N/A"}`,
-      "",
-      "View all leads: https://dash.cloudflare.com (D1 > jabooda-leads > investor_leads)",
-    ].join("\n");
-  }
-
-  // MailChannels - free email sending from Cloudflare Workers
-  // Requires DNS TXT record for SPF: v=spf1 include:relay.mailchannels.net -all
+async function forwardToGoogleSheet(body) {
   try {
-    await fetch("https://api.mailchannels.net/tx/v1/send", {
+    await fetch(GOOGLE_SHEET_WEBHOOK, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        personalizations: [{ to: [{ email: to }] }],
-        from: { email: "leads@jaboodacares.org", name: "Jabooda Leads" },
-        subject: subject,
-        content: [{ type: "text/plain", value: text }],
-      }),
+      body: JSON.stringify(body),
     });
-  } catch (emailErr) {
-    // Email is best-effort; lead is already saved to D1
-    console.error("Email notification failed:", emailErr);
+  } catch (sheetErr) {
+    // Google Sheet forwarding is best-effort; lead is already saved to D1
+    console.error("Google Sheet forwarding failed:", sheetErr);
   }
 }
 

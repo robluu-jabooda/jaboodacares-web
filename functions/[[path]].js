@@ -86,14 +86,13 @@ Submit an inquiry at ${SITE}/invest/ or email robert@jabooda.com
 export async function onRequest(context) {
   const url = new URL(context.request.url);
   const accept = context.request.headers.get("Accept") || "";
-  const wantsMd = accept.includes("text/markdown") || url.searchParams.has("format") && url.searchParams.get("format") === "markdown";
+  const wantsMd = accept.includes("text/markdown") || (url.searchParams.has("format") && url.searchParams.get("format") === "markdown");
 
   /* Not asking for markdown — serve static asset as normal */
   if (!wantsMd) {
     return context.next();
   }
 
-  const url = new URL(context.request.url);
   let path = url.pathname
     .replace(/\/index\.html$/, "/")
     .replace(/\/$/, "") || "/";

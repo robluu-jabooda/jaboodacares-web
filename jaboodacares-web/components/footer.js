@@ -8,7 +8,7 @@
     ein: '99-4589825',
     phone: '206-395-9808',
     email: 'robert@jabooda.com',
-    address: '2101 S Grand St, Seattle WA 98144',
+    address: '2101 S Grand St, Retail #45, Seattle, WA 98144',
   };
 
   var FOOTER_COLS = [

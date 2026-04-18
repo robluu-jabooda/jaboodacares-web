@@ -4,7 +4,7 @@
 - **Name:** Jabooda Cares
 - **Type:** WMBE-certified 501(c)(3) nonprofit affordable housing developer
 - **EIN:** 99-4589825
-- **Location:** 2101 S Grand St, Seattle WA 98144
+- **Location:** 2101 S Grand St, Retail #45, Seattle, WA 98144
 - **Contact:** robert@jabooda.com · 206-395-9808
 - **Key staff:** Nghia Pham (CEO), Kaitlyn Huynh (COO/Board President), Robert Luu (Executive Co-Director)
 

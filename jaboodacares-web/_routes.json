@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": [
+    "/images/*",
+    "/components/*.js",
+    "/favicon.*",
+    "/favicon-*",
+    "/apple-touch-icon.png",
+    "/*.css",
+    "/*.png",
+    "/*.jpg",
+    "/*.ico",
+    "/*.svg",
+    "/*.xml",
+    "/*.txt"
+  ]
+}

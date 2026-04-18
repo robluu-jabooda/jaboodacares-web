@@ -1,15 +1,12 @@
 /**
- * Cloudflare Pages middleware: Markdown for Agents
+ * Cloudflare Pages catch-all: Markdown for Agents
  *
- * When an AI agent sends Accept: text/markdown, return a clean
- * markdown version of the page instead of HTML.  For a small static
- * site we keep per-path markdown maps rather than doing live HTML
- * conversion.  Falls through to the normal static asset otherwise.
+ * Intercepts ALL requests. If Accept: text/markdown is present,
+ * returns a markdown version of the page. Otherwise serves the
+ * static asset normally via context.next().
  */
 
 const SITE = "https://www.jaboodacares.org";
-
-/* ---- per-path markdown content ---- */
 
 const PAGES = {
   "/": `# Jabooda Cares
@@ -89,39 +86,38 @@ Submit an inquiry at ${SITE}/invest/ or email robert@jabooda.com
 export async function onRequest(context) {
   const accept = context.request.headers.get("Accept") || "";
 
+  /* Not asking for markdown — serve static asset as normal */
   if (!accept.includes("text/markdown")) {
     return context.next();
   }
 
   const url = new URL(context.request.url);
-  let path = url.pathname.replace(/\/index\.html$/, "/").replace(/\/$/, "") || "/";
+  let path = url.pathname
+    .replace(/\/index\.html$/, "/")
+    .replace(/\/$/, "") || "/";
 
-  /* try exact match first, then with trailing slash stripped */
   let md = PAGES[path] || PAGES[path + "/"];
 
   if (!md) {
-    /* fallback: serve llms.txt for any unknown page */
+    /* Fallback: try to serve llms.txt */
     try {
-      const llms = await context.env.ASSETS.fetch(new URL("/llms.txt", url.origin));
-      if (llms.ok) {
-        md = await llms.text();
-      }
-    } catch (_) {
-      /* ignore */
-    }
+      const origin = url.origin;
+      const asset = await context.env.ASSETS.fetch(
+        new Request(origin + "/llms.txt")
+      );
+      if (asset.ok) md = await asset.text();
+    } catch (_) { /* ignore */ }
   }
 
   if (!md) {
     return context.next();
   }
 
-  const tokens = new Blob([md]).size;
-
   return new Response(md, {
     status: 200,
     headers: {
       "Content-Type": "text/markdown; charset=utf-8",
-      "X-Markdown-Tokens": String(tokens),
+      "X-Markdown-Tokens": String(new Blob([md]).size),
       "Cache-Control": "public, max-age=3600",
     },
   });

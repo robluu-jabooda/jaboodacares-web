@@ -1,0 +1,23 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
+  "skills": [
+    {
+      "name": "jabooda-cares-info",
+      "type": "llms-txt",
+      "description": "Organization overview, mission, programs, certifications, and contact info for Jabooda Cares, an AANHPI-led 501(c)(3) nonprofit affordable housing developer in Seattle.",
+      "url": "https://www.jaboodacares.org/llms.txt"
+    },
+    {
+      "name": "construction-lead-inquiry",
+      "type": "api",
+      "description": "Submit a construction lead inquiry for multifamily general contracting services in the Seattle area. Requires name, email, and project details.",
+      "url": "https://www.jaboodacares.org/build-with-us/"
+    },
+    {
+      "name": "eb5-investor-inquiry",
+      "type": "api",
+      "description": "Submit an EB-5 investor inquiry for USCIS-approved regional center projects in Seattle. Requires name, email, country of origin, and investment range.",
+      "url": "https://www.jaboodacares.org/invest/"
+    }
+  ]
+}

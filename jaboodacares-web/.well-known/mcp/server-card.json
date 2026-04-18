@@ -1,0 +1,15 @@
+{
+  "serverInfo": {
+    "name": "Jabooda Cares",
+    "version": "1.0.0",
+    "description": "AANHPI-led 501(c)(3) nonprofit affordable housing developer in Seattle, WA. Builds permanently affordable homes for veterans, foster youth, and families at 30-50% AMI."
+  },
+  "capabilities": {
+    "resources": true
+  },
+  "links": {
+    "website": "https://www.jaboodacares.org",
+    "llms_txt": "https://www.jaboodacares.org/llms.txt",
+    "agent_skills": "https://www.jaboodacares.org/.well-known/agent-skills/index.json"
+  }
+}

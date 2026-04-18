@@ -1,0 +1,23 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://www.jaboodacares.org/api/leads",
+      "service-desc": [
+        {
+          "href": "https://www.jaboodacares.org/llms.txt",
+          "type": "text/plain"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.jaboodacares.org/build-with-us/",
+          "type": "text/html"
+        },
+        {
+          "href": "https://www.jaboodacares.org/invest/",
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
+}
